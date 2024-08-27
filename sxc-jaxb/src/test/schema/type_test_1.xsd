@@ -17,7 +17,7 @@
   specific language governing permissions and limitations
   under the License.
 -->
-<xsd:schema xmlns:x3="http://apache.org/type_test/types3" xmlns:x2="http://apache.org/type_test/types2" xmlns:x1="http://apache.org/type_test/types1" xmlns:xalan="http://xml.apache.org/xslt" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:wsse="http://schemas.xmlsoap.org/ws/2003/06/secext" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:itst="http://tests.iona.com/ittests" xmlns="http://www.w3.org/2001/XMLSchema" jaxb:version="2.0" targetNamespace="http://apache.org/type_test/types1" elementFormDefault="qualified">
+<xsd:schema xmlns:x3="http://apache.org/type_test/types3" xmlns:x2="http://apache.org/type_test/types2" xmlns:x1="http://apache.org/type_test/types1" xmlns:xalan="http://xml.apache.org/xslt" xmlns:jaxb="https://jakarta.ee/xml/ns/jaxb" xmlns:wsse="http://schemas.xmlsoap.org/ws/2003/06/secext" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:itst="http://tests.iona.com/ittests" xmlns="http://www.w3.org/2001/XMLSchema" jaxb:version="3.0" targetNamespace="http://apache.org/type_test/types1" elementFormDefault="qualified">
     <element name="NillableString" type="string" nillable="true"/>
     <element name="NillableStruct" type="x1:SimpleStruct" nillable="true"/>
     <element name="AnonTypeElement">
