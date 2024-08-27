@@ -101,12 +101,9 @@ public class EclipseCompiler extends org.metatype.sxc.compiler.Compiler {
                 try {
                     original.getClassLoader().loadClass(key);
                 } catch (ClassNotFoundException e) {
-                    try {
-                        //FIXME this might not be right.
-                        MethodHandles.lookup().defineClass(proxyBytes);
-                    } catch (IllegalAccessException ex) {
-                        throw new RuntimeException(ex);
-                    }
+
+                        new org.metatype.sxc.util.Unsafe().defineAndLoadClass(original.getClassLoader(), key, proxyBytes, null);
+
                 }
             } catch (ClassNotFoundException e) {
                 System.out.println(key);
@@ -114,12 +111,8 @@ public class EclipseCompiler extends org.metatype.sxc.compiler.Compiler {
                 try {
                     loader.loadClass(key);
                 } catch (ClassNotFoundException e1) {
-                    try {
-                        //FIXME this might not be right.
-                        MethodHandles.lookup().defineClass(proxyBytes);
-                    } catch (IllegalAccessException ex) {
-                        throw new RuntimeException(ex);
-                    }
+                    new org.metatype.sxc.util.Unsafe().defineAndLoadClass(loader, key, proxyBytes, null);
+
                 }
             }
         }
