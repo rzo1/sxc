@@ -1,14 +1,9 @@
 package org.metatype.sxc.xpath;
 
-import java.io.ByteArrayInputStream;
+import junit.framework.TestCase;
 
 import javax.xml.stream.XMLStreamException;
-
-import junit.framework.TestCase;
-import org.metatype.sxc.xpath.XPathBuilder;
-import org.metatype.sxc.xpath.XPathEvaluator;
-import org.metatype.sxc.xpath.XPathEvent;
-import org.metatype.sxc.xpath.XPathEventHandler;
+import java.io.ByteArrayInputStream;
 
 public class AttributeTest extends TestCase {
     String value = null;

@@ -17,12 +17,12 @@
  */
 package org.metatype.sxc.jaxb.choice2;
 
-import java.util.List;
-
 import org.metatype.sxc.choice2.Choice1;
 import org.metatype.sxc.choice2.Parent;
 import org.metatype.sxc.jaxb.JAXBContextImpl;
 import org.metatype.sxc.util.XoTestCase;
+
+import java.util.List;
 
 public class ChoiceTest extends XoTestCase {
     

@@ -17,9 +17,9 @@
  */
 package org.metatype.sxc.jaxb.model;
 
+import javax.xml.namespace.QName;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import javax.xml.namespace.QName;
 
 public class EnumInfo {
     /**

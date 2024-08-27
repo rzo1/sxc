@@ -17,25 +17,25 @@
  */
 package org.metatype.sxc.jaxb;
 
-import java.util.List;
-import java.util.LinkedList;
-import java.util.ArrayList;
-import java.util.Iterator;
-import javax.xml.stream.XMLStreamReader;
-import javax.xml.stream.XMLEventReader;
-import javax.xml.stream.XMLStreamException;
-import javax.xml.stream.Location;
-import javax.xml.stream.events.XMLEvent;
-import javax.xml.stream.events.Attribute;
-import javax.xml.stream.events.Namespace;
-import javax.xml.stream.events.StartElement;
-import javax.xml.stream.events.EntityReference;
-import javax.xml.stream.events.DTD;
-import javax.xml.stream.events.Comment;
-import javax.xml.stream.events.StartDocument;
-import javax.xml.stream.events.ProcessingInstruction;
 import javax.xml.namespace.NamespaceContext;
 import javax.xml.namespace.QName;
+import javax.xml.stream.Location;
+import javax.xml.stream.XMLEventReader;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLStreamReader;
+import javax.xml.stream.events.Attribute;
+import javax.xml.stream.events.Comment;
+import javax.xml.stream.events.DTD;
+import javax.xml.stream.events.EntityReference;
+import javax.xml.stream.events.Namespace;
+import javax.xml.stream.events.ProcessingInstruction;
+import javax.xml.stream.events.StartDocument;
+import javax.xml.stream.events.StartElement;
+import javax.xml.stream.events.XMLEvent;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
 public class XMLEventStreamReader implements XMLStreamReader {
     private final XMLEventReader reader;

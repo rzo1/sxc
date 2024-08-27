@@ -17,6 +17,21 @@
  */
 package org.metatype.sxc.jaxb;
 
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Marshaller;
+import jakarta.xml.bind.UnmarshalException;
+import jakarta.xml.bind.Unmarshaller;
+import jakarta.xml.bind.ValidationEvent;
+import jakarta.xml.bind.ValidationEventHandler;
+import jakarta.xml.bind.helpers.ValidationEventImpl;
+import org.metatype.sxc.util.Attribute;
+import org.metatype.sxc.util.XoXMLStreamReader;
+import org.metatype.sxc.util.XoXMLStreamWriter;
+import org.w3c.dom.Element;
+
+import javax.xml.namespace.QName;
+import javax.xml.stream.Location;
+import javax.xml.stream.XMLStreamException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -25,21 +40,6 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.UnmarshalException;
-import javax.xml.bind.Unmarshaller;
-import javax.xml.bind.ValidationEvent;
-import javax.xml.bind.ValidationEventHandler;
-import javax.xml.bind.helpers.ValidationEventImpl;
-import javax.xml.namespace.QName;
-import javax.xml.stream.Location;
-import javax.xml.stream.XMLStreamException;
-
-import org.metatype.sxc.util.Attribute;
-import org.metatype.sxc.util.XoXMLStreamReader;
-import org.metatype.sxc.util.XoXMLStreamWriter;
-import org.w3c.dom.Element;
 
 @SuppressWarnings({"StringEquality"})
 public class RuntimeContext {

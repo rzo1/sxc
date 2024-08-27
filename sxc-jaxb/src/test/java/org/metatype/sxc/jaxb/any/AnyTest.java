@@ -17,21 +17,21 @@
  */
 package org.metatype.sxc.jaxb.any;
 
-import java.io.ByteArrayOutputStream;
-import java.util.List;
-import java.util.Map;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.Marshaller;
-import javax.xml.transform.stream.StreamSource;
-import javax.xml.namespace.QName;
-import javax.xml.XMLConstants;
-
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.Marshaller;
+import org.metatype.sxc.jaxb.JAXBContextImpl;
+import org.metatype.sxc.util.XoTestCase;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
-import org.metatype.sxc.util.XoTestCase;
-import org.metatype.sxc.jaxb.JAXBContextImpl;
+
+import javax.xml.XMLConstants;
+import javax.xml.namespace.QName;
+import javax.xml.transform.stream.StreamSource;
+import java.io.ByteArrayOutputStream;
+import java.util.List;
+import java.util.Map;
 
 public class AnyTest extends XoTestCase {
     public void testAnyElement() throws Exception {

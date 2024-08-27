@@ -17,7 +17,19 @@
  */
 package org.metatype.sxc.jaxb.root;
 
-import static java.beans.Introspector.decapitalize;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.Marshaller;
+import jakarta.xml.bind.UnmarshalException;
+import org.metatype.node.NamedNode;
+import org.metatype.sxc.jaxb.JAXBContextImpl;
+import org.metatype.sxc.util.XoTestCase;
+import org.w3c.dom.Document;
+
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.Duration;
+import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.namespace.QName;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.math.BigDecimal;
@@ -26,19 +38,8 @@ import java.net.URI;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.UnmarshalException;
-import javax.xml.datatype.DatatypeFactory;
-import javax.xml.datatype.Duration;
-import javax.xml.datatype.XMLGregorianCalendar;
-import javax.xml.namespace.QName;
 
-import org.metatype.node.NamedNode;
-import org.metatype.sxc.jaxb.JAXBContextImpl;
-import org.metatype.sxc.util.XoTestCase;
-import org.w3c.dom.Document;
+import static java.beans.Introspector.decapitalize;
 
 public class RootTest extends XoTestCase {
     public void setUp() throws Exception {

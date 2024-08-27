@@ -17,22 +17,19 @@
  */
 package org.metatype.sxc.jaxb;
 
+import com.everything.AttributesType;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.Marshaller;
+import org.metatype.sxc.util.Base64;
+import org.metatype.sxc.util.XoTestCase;
+import org.w3c.dom.Document;
+
+import javax.xml.namespace.QName;
+import javax.xml.transform.stream.StreamSource;
 import java.io.ByteArrayOutputStream;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Arrays;
-
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.Marshaller;
-import javax.xml.namespace.QName;
-import javax.xml.transform.stream.StreamSource;
-
-import org.metatype.sxc.jaxb.JAXBContextImpl;
-import org.w3c.dom.Document;
-
-import org.metatype.sxc.util.Base64;
-import org.metatype.sxc.util.XoTestCase;
-import com.everything.AttributesType;
 
 public class EverythingAttributeTest extends XoTestCase {
     

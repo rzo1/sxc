@@ -17,16 +17,12 @@
  */
 package org.metatype.sxc.jaxb;
 
-import java.io.ByteArrayOutputStream;
-
-import javax.xml.bind.Marshaller;
-
-import org.metatype.sxc.jaxb.JAXBContextImpl;
+import customer.Customer;
+import jakarta.xml.bind.Marshaller;
+import org.metatype.sxc.util.XoTestCase;
 import org.w3c.dom.Document;
 
-import org.metatype.sxc.util.XoTestCase;
-
-import customer.Customer;
+import java.io.ByteArrayOutputStream;
 
 public class CustomerTest extends XoTestCase {
     

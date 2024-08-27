@@ -1,21 +1,5 @@
 package org.metatype.sxc.compiler;
 
-import java.io.BufferedInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.StringTokenizer;
-
-import org.metatype.sxc.builder.BuildException;
 import org.eclipse.jdt.core.compiler.IProblem;
 import org.eclipse.jdt.internal.compiler.ClassFile;
 import org.eclipse.jdt.internal.compiler.Compiler;
@@ -28,7 +12,24 @@ import org.eclipse.jdt.internal.compiler.env.INameEnvironment;
 import org.eclipse.jdt.internal.compiler.env.NameEnvironmentAnswer;
 import org.eclipse.jdt.internal.compiler.impl.CompilerOptions;
 import org.eclipse.jdt.internal.compiler.problem.DefaultProblemFactory;
+import org.metatype.sxc.builder.BuildException;
 import sun.misc.Unsafe;
+
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.invoke.MethodHandles;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.StringTokenizer;
 
 public class EclipseCompiler extends org.metatype.sxc.compiler.Compiler {
     private CompilerOptions compilerOptions;
@@ -100,7 +101,12 @@ public class EclipseCompiler extends org.metatype.sxc.compiler.Compiler {
                 try {
                     original.getClassLoader().loadClass(key);
                 } catch (ClassNotFoundException e) {
-                    unsafe.defineClass(key, proxyBytes, 0, proxyBytes.length, original.getClassLoader(), original.getProtectionDomain());
+                    try {
+                        //FIXME this might not be right.
+                        MethodHandles.lookup().defineClass(proxyBytes);
+                    } catch (IllegalAccessException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
             } catch (ClassNotFoundException e) {
                 System.out.println(key);
@@ -108,7 +114,12 @@ public class EclipseCompiler extends org.metatype.sxc.compiler.Compiler {
                 try {
                     loader.loadClass(key);
                 } catch (ClassNotFoundException e1) {
-                    unsafe.defineClass(key, proxyBytes, 0, proxyBytes.length, loader, null);
+                    try {
+                        //FIXME this might not be right.
+                        MethodHandles.lookup().defineClass(proxyBytes);
+                    } catch (IllegalAccessException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
             }
         }

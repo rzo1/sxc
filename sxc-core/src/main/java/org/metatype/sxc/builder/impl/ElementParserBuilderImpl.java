@@ -1,28 +1,5 @@
 package org.metatype.sxc.builder.impl;
 
-import static org.metatype.sxc.builder.impl.IdentityManager.capitalize;
-
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.xml.XMLConstants;
-import javax.xml.namespace.QName;
-import javax.xml.stream.XMLStreamConstants;
-import javax.xml.stream.XMLStreamException;
-
-import org.metatype.sxc.Context;
-import org.metatype.sxc.Reader;
-import org.metatype.sxc.builder.BuildException;
-import org.metatype.sxc.builder.CodeBody;
-import org.metatype.sxc.builder.ElementParserBuilder;
-import org.metatype.sxc.builder.ParserBuilder;
-import org.metatype.sxc.util.Attribute;
-import org.metatype.sxc.util.XoXMLStreamReader;
 import com.sun.codemodel.JBlock;
 import com.sun.codemodel.JClass;
 import com.sun.codemodel.JClassAlreadyExistsException;
@@ -37,6 +14,28 @@ import com.sun.codemodel.JMethod;
 import com.sun.codemodel.JMod;
 import com.sun.codemodel.JType;
 import com.sun.codemodel.JVar;
+import org.metatype.sxc.Context;
+import org.metatype.sxc.Reader;
+import org.metatype.sxc.builder.BuildException;
+import org.metatype.sxc.builder.CodeBody;
+import org.metatype.sxc.builder.ElementParserBuilder;
+import org.metatype.sxc.builder.ParserBuilder;
+import org.metatype.sxc.util.Attribute;
+import org.metatype.sxc.util.XoXMLStreamReader;
+
+import javax.xml.XMLConstants;
+import javax.xml.namespace.QName;
+import javax.xml.stream.XMLStreamConstants;
+import javax.xml.stream.XMLStreamException;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+import static org.metatype.sxc.builder.impl.IdentityManager.capitalize;
 
 public class ElementParserBuilderImpl extends AbstractParserBuilder implements ElementParserBuilder {
 

@@ -17,11 +17,11 @@
  */
 package org.metatype.sxc.jaxb.model;
 
-import java.util.Map;
-import java.util.LinkedHashMap;
-import java.util.Set;
-import java.util.LinkedHashSet;
 import javax.xml.namespace.QName;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Set;
 
 public class ObjectFactory {
     /**

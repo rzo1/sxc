@@ -17,20 +17,20 @@
  */
 package org.metatype.sxc.jaxb.idref;
 
-import java.io.ByteArrayOutputStream;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Marshaller;
+import org.metatype.sxc.util.XoTestCase;
+import org.w3c.dom.Document;
+
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
-import java.util.Collections;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.Marshaller;
-
-import org.metatype.sxc.util.XoTestCase;
-import org.w3c.dom.Document;
 
 public class IdRefTest extends XoTestCase {
     private JAXBContext ctx;

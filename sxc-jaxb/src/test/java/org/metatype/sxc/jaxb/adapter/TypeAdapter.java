@@ -17,7 +17,7 @@
  */
 package org.metatype.sxc.jaxb.adapter;
 
-import javax.xml.bind.annotation.adapters.XmlAdapter;
+import jakarta.xml.bind.annotation.adapters.XmlAdapter;
 
 public class TypeAdapter extends XmlAdapter<ValueType, BoundType> {
     public BoundType unmarshal(ValueType v) throws Exception {

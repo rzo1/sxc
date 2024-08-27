@@ -1,11 +1,11 @@
 package org.metatype.sxc.builder.impl;
 
-import org.metatype.sxc.builder.CodeBody;
 import com.sun.codemodel.JBlock;
 import com.sun.codemodel.JExpression;
 import com.sun.codemodel.JStatement;
 import com.sun.codemodel.JType;
 import com.sun.codemodel.JVar;
+import org.metatype.sxc.builder.CodeBody;
 
 public class CodeBodyImpl implements CodeBody {
 

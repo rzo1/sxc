@@ -17,20 +17,16 @@
  */
 package org.metatype.sxc.jaxb;
 
-import org.metatype.sxc.jaxb.JAXBClass;
-import org.metatype.sxc.jaxb.JAXBObject;
-import org.metatype.sxc.jaxb.JAXBObjectFactory;
-import org.metatype.sxc.jaxb.StandardJAXBObjects;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.JAXBIntrospector;
 
-import java.util.Map;
-import java.util.LinkedHashMap;
+import javax.xml.namespace.QName;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Set;
-import java.lang.reflect.Field;
-import javax.xml.bind.JAXBIntrospector;
-import javax.xml.bind.JAXBElement;
-import javax.xml.namespace.QName;
 
 public class JAXBIntrospectorImpl extends JAXBIntrospector {
     private final Map<Class, JAXBObject> jaxbObjectByClass = new LinkedHashMap<Class, JAXBObject>();

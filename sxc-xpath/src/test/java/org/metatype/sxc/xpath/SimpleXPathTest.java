@@ -1,12 +1,8 @@
 package org.metatype.sxc.xpath;
 
-import javax.xml.stream.XMLStreamException;
-
 import junit.framework.TestCase;
-import org.metatype.sxc.xpath.XPathBuilder;
-import org.metatype.sxc.xpath.XPathEvaluator;
-import org.metatype.sxc.xpath.XPathEvent;
-import org.metatype.sxc.xpath.XPathEventHandler;
+
+import javax.xml.stream.XMLStreamException;
 
 public class SimpleXPathTest extends TestCase {
     String custTag = null;

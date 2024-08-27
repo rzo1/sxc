@@ -17,34 +17,6 @@
  */
 package org.metatype.sxc.jaxb;
 
-import static java.beans.Introspector.decapitalize;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.lang.reflect.Type;
-import java.lang.reflect.Modifier;
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
-import javax.xml.datatype.DatatypeConfigurationException;
-import javax.xml.datatype.DatatypeFactory;
-import javax.xml.namespace.QName;
-import javax.xml.bind.JAXBException;
-
-import org.metatype.sxc.jaxb.JAXBObject;
-import org.metatype.sxc.jaxb.LifecycleCallback;
-import org.metatype.sxc.jaxb.RuntimeContext;
-import org.metatype.sxc.builder.BuildException;
-import org.metatype.sxc.builder.impl.ElementParserBuilderImpl;
-import org.metatype.sxc.builder.impl.ElementWriterBuilderImpl;
-import org.metatype.sxc.builder.impl.IdentityManager;
-import org.metatype.sxc.builder.impl.JBlankLine;
-import org.metatype.sxc.builder.impl.JLineComment;
-import static org.metatype.sxc.builder.impl.IdentityManager.toValidId;
-import static org.metatype.sxc.jaxb.JavaUtils.capitalize;
-import org.metatype.sxc.util.XoXMLStreamReader;
-import org.metatype.sxc.util.XoXMLStreamWriter;
 import com.sun.codemodel.JBlock;
 import com.sun.codemodel.JCatchBlock;
 import com.sun.codemodel.JClass;
@@ -61,6 +33,32 @@ import com.sun.codemodel.JPackage;
 import com.sun.codemodel.JTryBlock;
 import com.sun.codemodel.JType;
 import com.sun.codemodel.JVar;
+import jakarta.xml.bind.JAXBException;
+import org.metatype.sxc.builder.BuildException;
+import org.metatype.sxc.builder.impl.ElementParserBuilderImpl;
+import org.metatype.sxc.builder.impl.ElementWriterBuilderImpl;
+import org.metatype.sxc.builder.impl.IdentityManager;
+import org.metatype.sxc.builder.impl.JBlankLine;
+import org.metatype.sxc.builder.impl.JLineComment;
+import org.metatype.sxc.util.XoXMLStreamReader;
+import org.metatype.sxc.util.XoXMLStreamWriter;
+
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.namespace.QName;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+import java.lang.reflect.Type;
+import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
+import static java.beans.Introspector.decapitalize;
+import static org.metatype.sxc.builder.impl.IdentityManager.toValidId;
+import static org.metatype.sxc.jaxb.JavaUtils.capitalize;
 
 public class JAXBObjectBuilder {
     private final JAXBObjectBuilder parent;

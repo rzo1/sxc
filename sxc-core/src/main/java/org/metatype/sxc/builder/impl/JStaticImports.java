@@ -1,5 +1,13 @@
 package org.metatype.sxc.builder.impl;
 
+import com.sun.codemodel.JClass;
+import com.sun.codemodel.JCommentPart;
+import com.sun.codemodel.JDefinedClass;
+import com.sun.codemodel.JDocComment;
+import com.sun.codemodel.JFormatter;
+import com.sun.codemodel.JVar;
+import org.metatype.sxc.builder.BuildException;
+
 import java.lang.reflect.Field;
 import java.util.Collection;
 import java.util.Iterator;
@@ -7,14 +15,6 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
 import java.util.TreeSet;
-
-import org.metatype.sxc.builder.BuildException;
-import com.sun.codemodel.JClass;
-import com.sun.codemodel.JCommentPart;
-import com.sun.codemodel.JDefinedClass;
-import com.sun.codemodel.JDocComment;
-import com.sun.codemodel.JFormatter;
-import com.sun.codemodel.JVar;
 
 public class JStaticImports {
     public static JStaticImports getStaticImports(JDefinedClass definedClass) {

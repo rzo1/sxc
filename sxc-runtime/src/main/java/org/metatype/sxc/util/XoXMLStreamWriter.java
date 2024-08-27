@@ -1,11 +1,11 @@
 package org.metatype.sxc.util;
 
-import java.util.Collection;
+import org.w3c.dom.Element;
+
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
-
-import org.w3c.dom.Element;
+import java.util.Collection;
 
 public interface XoXMLStreamWriter extends XMLStreamWriter {
     void writeString(String s) throws XMLStreamException;

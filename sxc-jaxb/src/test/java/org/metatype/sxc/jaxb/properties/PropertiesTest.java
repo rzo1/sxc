@@ -17,12 +17,12 @@
  */
 package org.metatype.sxc.jaxb.properties;
 
-import java.io.ByteArrayOutputStream;
-import javax.xml.bind.Marshaller;
-
+import jakarta.xml.bind.Marshaller;
 import org.metatype.sxc.jaxb.JAXBContextImpl;
 import org.metatype.sxc.util.XoTestCase;
 import org.w3c.dom.Document;
+
+import java.io.ByteArrayOutputStream;
 
 public class PropertiesTest extends XoTestCase {
     public void testProperties() throws Exception {

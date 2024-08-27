@@ -1,10 +1,10 @@
 package org.metatype.sxc.builder;
 
-import javax.xml.namespace.QName;
-
 import com.sun.codemodel.JExpression;
 import com.sun.codemodel.JType;
 import com.sun.codemodel.JVar;
+
+import javax.xml.namespace.QName;
 
 public interface ElementWriterBuilder extends WriterBuilder {
     

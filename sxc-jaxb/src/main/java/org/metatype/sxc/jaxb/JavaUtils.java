@@ -17,15 +17,15 @@
  */
 package org.metatype.sxc.jaxb;
 
+import java.lang.reflect.Array;
+import java.lang.reflect.GenericArrayType;
+import java.lang.reflect.Member;
+import java.lang.reflect.Modifier;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-import java.lang.reflect.Type;
-import java.lang.reflect.GenericArrayType;
-import java.lang.reflect.Array;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Modifier;
-import java.lang.reflect.Member;
 
 public final class JavaUtils {
 

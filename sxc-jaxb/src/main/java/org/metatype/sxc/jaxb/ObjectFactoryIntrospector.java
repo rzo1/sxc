@@ -17,12 +17,12 @@
  */
 package org.metatype.sxc.jaxb;
 
-import java.util.Map;
-import javax.xml.namespace.QName;
-
 import org.metatype.sxc.jaxb.model.Bean;
 import org.metatype.sxc.jaxb.model.Model;
 import org.metatype.sxc.jaxb.model.ObjectFactory;
+
+import javax.xml.namespace.QName;
+import java.util.Map;
 
 public class ObjectFactoryIntrospector {
     public ObjectFactoryIntrospector(BuilderContext builderContext, Model model) {

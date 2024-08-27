@@ -1,12 +1,12 @@
 package org.metatype.sxc.builder;
 
-import javax.xml.namespace.QName;
-
 import com.sun.codemodel.JBlock;
 import com.sun.codemodel.JCodeModel;
 import com.sun.codemodel.JDefinedClass;
 import com.sun.codemodel.JVar;
 import org.metatype.sxc.builder.impl.IdentityManager;
+
+import javax.xml.namespace.QName;
 
 public interface WriterBuilder {
 

@@ -17,17 +17,17 @@
  */
 package org.metatype.sxc.jaxb;
 
+import org.glassfish.jaxb.core.v2.model.core.ErrorHandler;
+import org.glassfish.jaxb.core.v2.model.core.Ref;
+import org.glassfish.jaxb.runtime.v2.model.annotation.RuntimeAnnotationReader;
+import org.glassfish.jaxb.runtime.v2.model.annotation.RuntimeInlineAnnotationReader;
+import org.glassfish.jaxb.runtime.v2.model.impl.RuntimeModelBuilder;
+import org.glassfish.jaxb.runtime.v2.model.runtime.RuntimeTypeInfoSet;
+import org.glassfish.jaxb.runtime.v2.runtime.IllegalAnnotationsException;
+
 import java.lang.reflect.Type;
 import java.util.HashMap;
 
-import com.sun.xml.bind.v2.model.annotation.RuntimeAnnotationReader;
-import com.sun.xml.bind.v2.model.annotation.RuntimeInlineAnnotationReader;
-import com.sun.xml.bind.v2.model.core.ErrorHandler;
-import com.sun.xml.bind.v2.model.core.Ref;
-import com.sun.xml.bind.v2.model.impl.RuntimeModelBuilder;
-import com.sun.xml.bind.v2.model.runtime.RuntimeTypeInfoSet;
-import com.sun.xml.bind.v2.runtime.IllegalAnnotationsException;
-import com.sun.xml.bind.v2.runtime.JAXBContextImpl;
 
 /**
  * Factory methods to build JAXB models.
@@ -48,7 +48,7 @@ public abstract class JAXBModelFactory {
      * @return null if any error was reported during the processing. If no error
      *         is reported, a non-null valid object.
      */
-    public static RuntimeTypeInfoSet create(JAXBContextImpl context, 
+    public static RuntimeTypeInfoSet create(org.glassfish.jaxb.runtime.v2.runtime.JAXBContextImpl context,
                                             RuntimeAnnotationReader reader, ErrorHandler errorHandler,
                                             Class... classes) {
 
@@ -70,7 +70,7 @@ public abstract class JAXBModelFactory {
      * @return null if any error was reported during the processing. If no error
      *         is reported, a non-null valid object.
      */
-    public static RuntimeTypeInfoSet create(JAXBContextImpl context, ErrorHandler errorHandler, Class... classes) {
+    public static RuntimeTypeInfoSet create(org.glassfish.jaxb.runtime.v2.runtime.JAXBContextImpl context, ErrorHandler errorHandler, Class... classes) {
 
         return create(context, new RuntimeInlineAnnotationReader(), errorHandler, classes);
     }
@@ -87,10 +87,11 @@ public abstract class JAXBModelFactory {
      * @throws IllegalAnnotationsException if there was any incorrect use of
      *             annotations in the specified set of classes.
      */
-    public static RuntimeTypeInfoSet create(JAXBContextImpl context, Class... classes) throws IllegalAnnotationsException {
+    public static RuntimeTypeInfoSet create(org.glassfish.jaxb.runtime.v2.runtime.JAXBContextImpl context, Class... classes) throws IllegalAnnotationsException {
         IllegalAnnotationsException.Builder errorListener = new IllegalAnnotationsException.Builder();
         RuntimeTypeInfoSet r = create(context, errorListener, classes);
         errorListener.check();
         return r;
     }
+
 }

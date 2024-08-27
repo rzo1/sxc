@@ -17,36 +17,33 @@
  */
 package org.metatype.sxc.jaxb;
 
-import java.io.IOException;
-import java.io.File;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-import java.lang.reflect.WildcardType;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Collections;
-import java.util.concurrent.Callable;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.namespace.QName;
-
-import org.metatype.sxc.jaxb.JAXBClass;
-import org.metatype.sxc.jaxb.RuntimeContext;
-import org.metatype.sxc.builder.BuildException;
-import org.metatype.sxc.builder.impl.BuildContext;
-import org.metatype.sxc.builder.impl.CodeWriterImpl;
-import org.metatype.sxc.compiler.Compiler;
-import static org.metatype.sxc.jaxb.JavaUtils.toClass;
-import org.metatype.sxc.jaxb.model.Model;
-import org.metatype.sxc.jaxb.model.RiModelBuilder;
 import com.sun.codemodel.CodeWriter;
 import com.sun.codemodel.JClass;
 import com.sun.codemodel.JCodeModel;
 import com.sun.codemodel.JExpression;
 import com.sun.codemodel.JType;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
+import org.metatype.sxc.builder.BuildException;
+import org.metatype.sxc.builder.impl.BuildContext;
+import org.metatype.sxc.builder.impl.CodeWriterImpl;
+import org.metatype.sxc.compiler.Compiler;
+import org.metatype.sxc.jaxb.model.Model;
+import org.metatype.sxc.jaxb.model.RiModelBuilder;
+
+import javax.xml.namespace.QName;
+import java.io.File;
+import java.io.IOException;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+import java.lang.reflect.WildcardType;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.Callable;
 
 public class BuilderContext {
     private BuildContext buildContext;

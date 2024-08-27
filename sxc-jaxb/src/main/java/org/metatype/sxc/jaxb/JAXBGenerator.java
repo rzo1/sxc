@@ -1,14 +1,14 @@
 package org.metatype.sxc.jaxb;
 
+import jakarta.xml.bind.JAXBException;
+import org.metatype.sxc.compiler.JavacCompiler;
+
 import java.io.File;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
-import javax.xml.bind.JAXBException;
-
-import org.metatype.sxc.compiler.JavacCompiler;
 
 public class JAXBGenerator {
     private final Map<String,Object> properties = new LinkedHashMap<String, Object>();

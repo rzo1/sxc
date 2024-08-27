@@ -17,8 +17,8 @@
  */
 package org.metatype.sxc.jaxb.model;
 
-import java.lang.reflect.Type;
 import javax.xml.namespace.QName;
+import java.lang.reflect.Type;
 
 public class ElementMapping {
     private final Property property;

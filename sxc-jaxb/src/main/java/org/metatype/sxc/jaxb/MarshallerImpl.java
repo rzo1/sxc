@@ -17,32 +17,14 @@
  */
 package org.metatype.sxc.jaxb;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Calendar;
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.MarshalException;
-import javax.xml.bind.ValidationEvent;
-import javax.xml.bind.annotation.adapters.XmlAdapter;
-import javax.xml.bind.attachment.AttachmentMarshaller;
-import javax.xml.bind.helpers.AbstractMarshallerImpl;
-import javax.xml.bind.helpers.ValidationEventImpl;
-import javax.xml.datatype.Duration;
-import javax.xml.datatype.XMLGregorianCalendar;
-import javax.xml.namespace.QName;
-import javax.xml.stream.XMLEventWriter;
-import javax.xml.stream.XMLStreamException;
-import javax.xml.stream.XMLStreamWriter;
-import javax.xml.transform.Result;
-import javax.xml.transform.dom.DOMResult;
-import javax.xml.validation.Schema;
-
-import org.metatype.sxc.jaxb.ExtendedMarshaller;
-import org.metatype.sxc.jaxb.JAXBObject;
-import org.metatype.sxc.jaxb.RuntimeContext;
-import org.metatype.sxc.jaxb.StandardJAXBObjects;
-import org.metatype.sxc.jaxb.ValidationEventLocatorImpl;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.MarshalException;
+import jakarta.xml.bind.ValidationEvent;
+import jakarta.xml.bind.annotation.adapters.XmlAdapter;
+import jakarta.xml.bind.attachment.AttachmentMarshaller;
+import jakarta.xml.bind.helpers.AbstractMarshallerImpl;
+import jakarta.xml.bind.helpers.ValidationEventImpl;
 import org.metatype.sxc.util.PrettyPrintXMLStreamWriter;
 import org.metatype.sxc.util.RuntimeXMLStreamException;
 import org.metatype.sxc.util.W3CDOMStreamWriter;
@@ -52,6 +34,19 @@ import org.metatype.sxc.util.XoXMLStreamWriterImpl;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+
+import javax.xml.datatype.Duration;
+import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.namespace.QName;
+import javax.xml.stream.XMLEventWriter;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLStreamWriter;
+import javax.xml.transform.Result;
+import javax.xml.transform.dom.DOMResult;
+import javax.xml.validation.Schema;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MarshallerImpl extends AbstractMarshallerImpl implements ExtendedMarshaller {
 	public static final String MARSHALLER = "sxc.marshaller";
@@ -255,15 +250,6 @@ public class MarshallerImpl extends AbstractMarshallerImpl implements ExtendedMa
             throw new MarshalException(e);
 
         }
-    }
-
-    @SuppressWarnings({"unchecked"})
-    public <A extends XmlAdapter> A getAdapter(Class<A> type) {
-        return (A) adapters.get(type);
-    }
-
-    public <A extends XmlAdapter> void setAdapter(Class<A> type, A adapter) {
-        adapters.put(type, adapter);
     }
 
     public AttachmentMarshaller getAttachmentMarshaller() {

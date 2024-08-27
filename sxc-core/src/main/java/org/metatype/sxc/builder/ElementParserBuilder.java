@@ -1,11 +1,11 @@
 package org.metatype.sxc.builder;
 
-import javax.xml.namespace.QName;
-
+import com.sun.codemodel.JBlock;
 import com.sun.codemodel.JExpression;
 import com.sun.codemodel.JType;
 import com.sun.codemodel.JVar;
-import com.sun.codemodel.JBlock;
+
+import javax.xml.namespace.QName;
 
 public interface ElementParserBuilder extends ParserBuilder {
 

@@ -17,12 +17,12 @@
  */
 package org.metatype.sxc.jaxb;
 
-import java.net.URL;
-import java.net.MalformedURLException;
-import javax.xml.bind.ValidationEventLocator;
-import javax.xml.stream.Location;
-
+import jakarta.xml.bind.ValidationEventLocator;
 import org.w3c.dom.Node;
+
+import javax.xml.stream.Location;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class ValidationEventLocatorImpl implements ValidationEventLocator {
     private Location location;

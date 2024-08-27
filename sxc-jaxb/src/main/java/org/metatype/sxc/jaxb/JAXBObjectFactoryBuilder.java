@@ -17,16 +17,6 @@
  */
 package org.metatype.sxc.jaxb;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
-import javax.xml.namespace.QName;
-
-import org.metatype.sxc.jaxb.JAXBObject;
-import org.metatype.sxc.jaxb.JAXBObjectFactory;
-import org.metatype.sxc.jaxb.StandardJAXBObjects;
-import org.metatype.sxc.builder.BuildException;
 import com.sun.codemodel.JClass;
 import com.sun.codemodel.JClassAlreadyExistsException;
 import com.sun.codemodel.JDefinedClass;
@@ -36,6 +26,13 @@ import com.sun.codemodel.JFieldVar;
 import com.sun.codemodel.JInvocation;
 import com.sun.codemodel.JMethod;
 import com.sun.codemodel.JMod;
+import org.metatype.sxc.builder.BuildException;
+
+import javax.xml.namespace.QName;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class JAXBObjectFactoryBuilder {
     private final BuilderContext builderContext;

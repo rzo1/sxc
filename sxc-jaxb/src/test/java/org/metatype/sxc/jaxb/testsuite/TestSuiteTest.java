@@ -17,9 +17,9 @@
  */
 package org.metatype.sxc.jaxb.testsuite;
 
+import com.sun.japex.testsuite.TestSuiteElement;
 import org.metatype.sxc.jaxb.JAXBContextImpl;
 import org.metatype.sxc.util.XoTestCase;
-import com.sun.japex.testsuite.TestSuiteElement;
 
 public class TestSuiteTest extends XoTestCase {
     

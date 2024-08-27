@@ -17,13 +17,6 @@
  */
 package org.metatype.sxc.jaxb;
 
-import static java.beans.Introspector.decapitalize;
-import javax.xml.namespace.QName;
-
-import org.metatype.sxc.jaxb.JAXBEnum;
-import org.metatype.sxc.jaxb.RuntimeContext;
-import org.metatype.sxc.builder.BuildException;
-import org.metatype.sxc.util.XoXMLStreamReader;
 import com.sun.codemodel.JClassAlreadyExistsException;
 import com.sun.codemodel.JDefinedClass;
 import com.sun.codemodel.JExpr;
@@ -31,6 +24,12 @@ import com.sun.codemodel.JExpression;
 import com.sun.codemodel.JMethod;
 import com.sun.codemodel.JMod;
 import com.sun.codemodel.JVar;
+import org.metatype.sxc.builder.BuildException;
+import org.metatype.sxc.util.XoXMLStreamReader;
+
+import javax.xml.namespace.QName;
+
+import static java.beans.Introspector.decapitalize;
 
 public class JAXBEnumBuilder {
     private final BuilderContext builderContext;

@@ -17,25 +17,25 @@
  */
 package org.metatype.sxc.jaxb;
 
-import java.util.Map;
-import java.util.LinkedHashMap;
-import java.util.Collections;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Date;
-import java.util.UUID;
-import java.math.BigInteger;
-import java.math.BigDecimal;
-import java.net.URI;
-import javax.xml.namespace.QName;
-import javax.xml.datatype.DatatypeFactory;
-import javax.xml.datatype.DatatypeConfigurationException;
-import javax.xml.datatype.XMLGregorianCalendar;
-import javax.xml.datatype.Duration;
-import javax.xml.XMLConstants;
-
 import org.metatype.sxc.util.XoXMLStreamReader;
 import org.metatype.sxc.util.XoXMLStreamWriter;
+
+import javax.xml.XMLConstants;
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.Duration;
+import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.namespace.QName;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.net.URI;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.UUID;
 
 public class StandardJAXBObjects {
     private static final DatatypeFactory datatypeFactory;

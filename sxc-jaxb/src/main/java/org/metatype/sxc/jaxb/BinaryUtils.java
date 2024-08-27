@@ -17,16 +17,15 @@
  */
 package org.metatype.sxc.jaxb;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
+import jakarta.activation.DataHandler;
+import jakarta.xml.bind.attachment.AttachmentUnmarshaller;
+import org.metatype.sxc.util.Base64;
 
-import javax.activation.DataHandler;
-import javax.xml.bind.attachment.AttachmentUnmarshaller;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.XMLStreamWriter;
-
-import org.metatype.sxc.util.Base64;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 
 public class BinaryUtils {
     public static byte[] decodeAsBytes(XMLStreamReader reader) 

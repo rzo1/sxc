@@ -17,20 +17,20 @@
  */
 package org.metatype.sxc.jaxb.root;
 
-import java.math.BigInteger;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.annotation.XmlElementDecl;
+import jakarta.xml.bind.annotation.XmlRegistry;
+import org.metatype.node.NamedNode;
+
+import javax.xml.datatype.Duration;
+import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.namespace.QName;
 import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.net.URI;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.UUID;
-import java.net.URI;
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.annotation.XmlElementDecl;
-import javax.xml.bind.annotation.XmlRegistry;
-import javax.xml.namespace.QName;
-import javax.xml.datatype.Duration;
-import javax.xml.datatype.XMLGregorianCalendar;
-
-import org.metatype.node.NamedNode;
 
 @XmlRegistry
 public class ObjectFactory {

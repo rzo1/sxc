@@ -17,10 +17,7 @@
  */
 package org.metatype.sxc.jaxb;
 
-import javax.xml.bind.JAXBException;
-
-import org.metatype.sxc.jaxb.IdRefTarget;
-import org.metatype.sxc.jaxb.RuntimeContext;
+import jakarta.xml.bind.JAXBException;
 import org.metatype.sxc.util.XoXMLStreamReader;
 
 public class PropertyRefTarget implements IdRefTarget {

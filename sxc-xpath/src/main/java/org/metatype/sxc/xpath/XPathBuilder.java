@@ -1,12 +1,5 @@
 package org.metatype.sxc.xpath;
 
-import org.metatype.sxc.Context;
-import org.metatype.sxc.builder.Builder;
-import org.metatype.sxc.builder.CodeBody;
-import org.metatype.sxc.builder.ElementParserBuilder;
-import org.metatype.sxc.builder.ParserBuilder;
-import org.metatype.sxc.builder.impl.BuilderImpl;
-import org.metatype.sxc.xpath.impl.XPathEvaluatorImpl;
 import com.sun.codemodel.JBlock;
 import com.sun.codemodel.JCodeModel;
 import com.sun.codemodel.JExpr;
@@ -14,14 +7,6 @@ import com.sun.codemodel.JMod;
 import com.sun.codemodel.JPrimitiveType;
 import com.sun.codemodel.JType;
 import com.sun.codemodel.JVar;
-
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import javax.xml.namespace.QName;
-
 import org.jaxen.JaxenHandler;
 import org.jaxen.expr.AllNodeStep;
 import org.jaxen.expr.EqualityExpr;
@@ -38,6 +23,19 @@ import org.jaxen.expr.XPathExpr;
 import org.jaxen.saxpath.Axis;
 import org.jaxen.saxpath.SAXPathException;
 import org.jaxen.saxpath.helpers.XPathReaderFactory;
+import org.metatype.sxc.Context;
+import org.metatype.sxc.builder.Builder;
+import org.metatype.sxc.builder.CodeBody;
+import org.metatype.sxc.builder.ElementParserBuilder;
+import org.metatype.sxc.builder.ParserBuilder;
+import org.metatype.sxc.builder.impl.BuilderImpl;
+import org.metatype.sxc.xpath.impl.XPathEvaluatorImpl;
+
+import javax.xml.namespace.QName;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 public class XPathBuilder {
     private Map<String,String> namespaceContext;

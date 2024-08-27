@@ -17,13 +17,11 @@
  */
 package org.metatype.sxc.jaxb;
 
-import java.lang.reflect.Field;
-
-import javax.xml.bind.JAXBException;
-
-import org.metatype.sxc.jaxb.RuntimeContext;
-import sun.misc.Unsafe;
+import jakarta.xml.bind.JAXBException;
 import org.metatype.sxc.util.XoXMLStreamReader;
+import sun.misc.Unsafe;
+
+import java.lang.reflect.Field;
 
 public class FieldAccessor<BeanType, FieldType> {
     private static final Unsafe unsafe;

@@ -1,14 +1,14 @@
 package org.metatype.sxc.builder;
 
-import java.io.File;
-import java.io.IOException;
-
-import org.metatype.sxc.Context;
-import org.metatype.sxc.Reader;
-import com.sun.codemodel.JCodeModel;
-import com.sun.codemodel.JMethod;
 import com.sun.codemodel.CodeWriter;
 import com.sun.codemodel.JClass;
+import com.sun.codemodel.JCodeModel;
+import com.sun.codemodel.JMethod;
+import org.metatype.sxc.Context;
+import org.metatype.sxc.Reader;
+
+import java.io.File;
+import java.io.IOException;
 
 
 public interface Builder {

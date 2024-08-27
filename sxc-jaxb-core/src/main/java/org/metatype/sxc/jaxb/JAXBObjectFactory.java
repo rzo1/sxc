@@ -17,8 +17,8 @@
  */
 package org.metatype.sxc.jaxb;
 
-import java.util.Map;
 import javax.xml.namespace.QName;
+import java.util.Map;
 
 public abstract class JAXBObjectFactory<T> extends JAXBClass<T> {
     public JAXBObjectFactory(Class<T> type, Class<? extends JAXBClass>... dependencies) {

@@ -17,19 +17,17 @@
  */
 package org.metatype.sxc.jaxb.node;
 
-import java.io.ByteArrayOutputStream;
-
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.JAXBContext;
-import javax.xml.transform.stream.StreamSource;
-
-import org.w3c.dom.Document;
-
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.Marshaller;
 import org.metatype.node.NamedNode;
 import org.metatype.node.Node;
 import org.metatype.sxc.jaxb.JAXBContextImpl;
 import org.metatype.sxc.util.XoTestCase;
+import org.w3c.dom.Document;
+
+import javax.xml.transform.stream.StreamSource;
+import java.io.ByteArrayOutputStream;
 
 public class NodeTest extends XoTestCase {
     

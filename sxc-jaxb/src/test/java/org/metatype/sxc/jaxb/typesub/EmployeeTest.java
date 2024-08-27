@@ -17,23 +17,20 @@
  */
 package org.metatype.sxc.jaxb.typesub;
 
-import java.io.ByteArrayOutputStream;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.MarshalException;
-import javax.xml.bind.Marshaller;
-import javax.xml.stream.XMLOutputFactory;
-import javax.xml.stream.XMLStreamWriter;
-
-import org.w3c.dom.Document;
-
-import xfire.inheritance.Employee;
-
 import com.ctc.wstx.stax.WstxInputFactory;
 import com.ctc.wstx.stax.WstxOutputFactory;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.MarshalException;
+import jakarta.xml.bind.Marshaller;
 import org.metatype.sxc.jaxb.JAXBContextImpl;
 import org.metatype.sxc.util.XoTestCase;
+import org.w3c.dom.Document;
+import xfire.inheritance.Employee;
+
+import javax.xml.stream.XMLOutputFactory;
+import javax.xml.stream.XMLStreamWriter;
+import java.io.ByteArrayOutputStream;
 
 public class EmployeeTest extends XoTestCase {
     private WstxInputFactory xif = new WstxInputFactory();

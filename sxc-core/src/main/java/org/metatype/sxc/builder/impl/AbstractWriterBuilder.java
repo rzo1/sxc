@@ -1,14 +1,14 @@
 package org.metatype.sxc.builder.impl;
 
-import org.metatype.sxc.builder.WriterBuilder;
-import org.metatype.sxc.util.XoXMLStreamWriter;
 import com.sun.codemodel.JBlock;
 import com.sun.codemodel.JCodeModel;
 import com.sun.codemodel.JDefinedClass;
 import com.sun.codemodel.JExpr;
 import com.sun.codemodel.JMethod;
-import com.sun.codemodel.JVar;
 import com.sun.codemodel.JType;
+import com.sun.codemodel.JVar;
+import org.metatype.sxc.builder.WriterBuilder;
+import org.metatype.sxc.util.XoXMLStreamWriter;
 
 import javax.xml.namespace.QName;
 import java.util.ArrayList;

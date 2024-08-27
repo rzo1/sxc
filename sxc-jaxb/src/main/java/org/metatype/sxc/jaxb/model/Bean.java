@@ -17,9 +17,9 @@
  */
 package org.metatype.sxc.jaxb.model;
 
+import javax.xml.namespace.QName;
 import java.util.LinkedHashSet;
 import java.util.Set;
-import javax.xml.namespace.QName;
 
 public class Bean {
     /**

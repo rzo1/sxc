@@ -19,9 +19,9 @@ package org.metatype.sxc.jaxb.model;
 
 import java.util.Collection;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.LinkedHashSet;
 
 public class Model {
     private final Map<Class, Bean> beansByClass = new LinkedHashMap<Class, Bean>();

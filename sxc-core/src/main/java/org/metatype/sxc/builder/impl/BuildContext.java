@@ -5,12 +5,11 @@ import com.sun.codemodel.JCodeModel;
 import com.sun.codemodel.JDefinedClass;
 import com.sun.codemodel.JMethod;
 import com.sun.codemodel.JMod;
+import org.metatype.sxc.builder.impl.ElementParserBuilderImpl.ExpectedElement;
 
 import javax.xml.namespace.QName;
 import java.util.HashMap;
 import java.util.Map;
-
-import org.metatype.sxc.builder.impl.ElementParserBuilderImpl.ExpectedElement;
 
 public class BuildContext {
     private JCodeModel model = new JCodeModel();

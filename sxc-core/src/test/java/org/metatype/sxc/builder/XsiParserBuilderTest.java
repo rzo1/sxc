@@ -1,16 +1,15 @@
 package org.metatype.sxc.builder;
 
-import javax.xml.namespace.QName;
-
-import junit.framework.TestCase;
-
-import org.metatype.sxc.Context;
-import org.metatype.sxc.Reader;
-import org.metatype.sxc.builder.impl.BuilderImpl;
 import com.sun.codemodel.JCodeModel;
 import com.sun.codemodel.JExpr;
 import com.sun.codemodel.JType;
 import com.sun.codemodel.JVar;
+import junit.framework.TestCase;
+import org.metatype.sxc.Context;
+import org.metatype.sxc.Reader;
+import org.metatype.sxc.builder.impl.BuilderImpl;
+
+import javax.xml.namespace.QName;
 
 public class XsiParserBuilderTest extends TestCase {
     String nodeNs = "http://metatype.org/node";

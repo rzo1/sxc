@@ -17,17 +17,15 @@
  */
 package org.metatype.sxc.jaxb.simple;
 
-import java.io.ByteArrayOutputStream;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.Marshaller;
-import javax.xml.stream.XMLStreamReader;
-
-import org.w3c.dom.Document;
-
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.Marshaller;
 import org.metatype.sxc.jaxb.JAXBContextImpl;
 import org.metatype.sxc.util.XoTestCase;
+import org.w3c.dom.Document;
+
+import javax.xml.stream.XMLStreamReader;
+import java.io.ByteArrayOutputStream;
 
 public class SimpleReadWriteTest extends XoTestCase {
     

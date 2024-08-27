@@ -1,11 +1,11 @@
 package org.metatype.sxc.builder.impl;
 
-import java.lang.reflect.Constructor;
-
 import org.metatype.sxc.Context;
 import org.metatype.sxc.Reader;
 import org.metatype.sxc.Writer;
 import org.metatype.sxc.builder.BuildException;
+
+import java.lang.reflect.Constructor;
 
 public class CompiledContext extends Context {
 

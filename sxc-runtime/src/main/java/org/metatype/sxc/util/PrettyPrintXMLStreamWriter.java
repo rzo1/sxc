@@ -1,10 +1,10 @@
 package org.metatype.sxc.util;
 
-import java.util.Arrays;
-import java.util.LinkedList;
 import javax.xml.namespace.NamespaceContext;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
+import java.util.Arrays;
+import java.util.LinkedList;
 
 public class PrettyPrintXMLStreamWriter implements XMLStreamWriter {
     public static final int DEFAULT_INDENT_SIZE = 4;

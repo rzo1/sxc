@@ -17,12 +17,11 @@
  */
 package org.metatype.sxc.jaxb;
 
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.UnmarshallerHandler;
-import javax.xml.stream.XMLEventReader;
-
-import org.metatype.sxc.jaxb.ExtendedUnmarshaller;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.UnmarshallerHandler;
 import org.metatype.sxc.jaxb.StaxContentHandler.StaxParser;
+
+import javax.xml.stream.XMLEventReader;
 
 public class UnmarshallerHandlerImpl extends StaxContentHandler implements UnmarshallerHandler, StaxParser {
     private final ExtendedUnmarshaller extendedUnmarshaller;

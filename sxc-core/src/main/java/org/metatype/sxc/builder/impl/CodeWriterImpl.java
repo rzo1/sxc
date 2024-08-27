@@ -1,14 +1,14 @@
 package org.metatype.sxc.builder.impl;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.FileOutputStream;
-import java.util.Map;
-import java.util.HashMap;
-
 import com.sun.codemodel.CodeWriter;
 import com.sun.codemodel.JPackage;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CodeWriterImpl extends CodeWriter {
     private final File baseDir;

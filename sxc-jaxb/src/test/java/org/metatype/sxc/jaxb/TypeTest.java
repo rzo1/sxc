@@ -17,12 +17,10 @@
  */
 package org.metatype.sxc.jaxb;
 
-import java.util.HashMap;
-
 import org.apache.type_test.types1.DecimalEnum;
-
-import org.metatype.sxc.jaxb.JAXBContextImpl;
 import org.metatype.sxc.util.XoTestCase;
+
+import java.util.HashMap;
 
 public class TypeTest extends XoTestCase {
     public void testEverything1() throws Exception {

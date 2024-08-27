@@ -17,12 +17,12 @@
  */
 package org.metatype.sxc.jaxb.model;
 
+import javax.xml.namespace.QName;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.namespace.QName;
 
 public class Property {
     public enum XmlStyle {

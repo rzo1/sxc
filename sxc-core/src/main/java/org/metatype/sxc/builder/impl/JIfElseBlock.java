@@ -1,14 +1,14 @@
 package org.metatype.sxc.builder.impl;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
-import org.metatype.sxc.builder.BuildException;
 import com.sun.codemodel.JBlock;
 import com.sun.codemodel.JExpression;
 import com.sun.codemodel.JFormatter;
 import com.sun.codemodel.JStatement;
+import org.metatype.sxc.builder.BuildException;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class JIfElseBlock implements JStatement {
     private final List<IfCondition> ifConditions = new ArrayList<IfCondition>();

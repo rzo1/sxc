@@ -17,10 +17,9 @@
  */
 package org.metatype.sxc.jaxb;
 
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Marshaller;
 import org.metatype.sxc.util.XoXMLStreamWriter;
-
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
 
 /**
  * @version $Revision$ $Date$

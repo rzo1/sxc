@@ -17,46 +17,47 @@
  */
 package org.metatype.sxc.jaxb.model;
 
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.annotation.XmlElementDecl;
+import jakarta.xml.bind.annotation.XmlRegistry;
+import jakarta.xml.bind.annotation.XmlSchema;
+import org.glassfish.jaxb.core.v2.model.core.ID;
+import org.glassfish.jaxb.core.v2.model.core.WildcardMode;
+import org.glassfish.jaxb.runtime.api.AccessorException;
+import org.glassfish.jaxb.runtime.v2.ContextFactory;
+import org.glassfish.jaxb.runtime.v2.model.runtime.RuntimeAttributePropertyInfo;
+import org.glassfish.jaxb.runtime.v2.model.runtime.RuntimeClassInfo;
+import org.glassfish.jaxb.runtime.v2.model.runtime.RuntimeElement;
+import org.glassfish.jaxb.runtime.v2.model.runtime.RuntimeElementInfo;
+import org.glassfish.jaxb.runtime.v2.model.runtime.RuntimeElementPropertyInfo;
+import org.glassfish.jaxb.runtime.v2.model.runtime.RuntimeEnumLeafInfo;
+import org.glassfish.jaxb.runtime.v2.model.runtime.RuntimeLeafInfo;
+import org.glassfish.jaxb.runtime.v2.model.runtime.RuntimePropertyInfo;
+import org.glassfish.jaxb.runtime.v2.model.runtime.RuntimeReferencePropertyInfo;
+import org.glassfish.jaxb.runtime.v2.model.runtime.RuntimeTypeInfoSet;
+import org.glassfish.jaxb.runtime.v2.model.runtime.RuntimeTypeRef;
+import org.glassfish.jaxb.runtime.v2.model.runtime.RuntimeValuePropertyInfo;
+import org.glassfish.jaxb.runtime.v2.runtime.JAXBContextImpl;
+import org.glassfish.jaxb.runtime.v2.runtime.Transducer;
+import org.glassfish.jaxb.runtime.v2.runtime.reflect.Accessor;
+import org.metatype.sxc.builder.BuildException;
+import org.metatype.sxc.jaxb.JAXBModelFactory;
+import org.metatype.sxc.jaxb.JavaUtils;
+
+import javax.xml.namespace.QName;
 import java.beans.Introspector;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.util.Map;
-import java.util.LinkedHashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.concurrent.Callable;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.annotation.XmlElementDecl;
-import javax.xml.bind.annotation.XmlRegistry;
-import javax.xml.bind.annotation.XmlSchema;
-import javax.xml.namespace.QName;
 
-import org.metatype.sxc.builder.BuildException;
-import org.metatype.sxc.jaxb.JAXBModelFactory;
-import org.metatype.sxc.jaxb.JavaUtils;
-import com.sun.xml.bind.api.AccessorException;
-import com.sun.xml.bind.v2.ContextFactory;
-import com.sun.xml.bind.v2.model.core.ID;
-import com.sun.xml.bind.v2.model.core.WildcardMode;
-import com.sun.xml.bind.v2.model.runtime.RuntimeAttributePropertyInfo;
-import com.sun.xml.bind.v2.model.runtime.RuntimeClassInfo;
-import com.sun.xml.bind.v2.model.runtime.RuntimeElement;
-import com.sun.xml.bind.v2.model.runtime.RuntimeElementInfo;
-import com.sun.xml.bind.v2.model.runtime.RuntimeElementPropertyInfo;
-import com.sun.xml.bind.v2.model.runtime.RuntimeEnumLeafInfo;
-import com.sun.xml.bind.v2.model.runtime.RuntimeLeafInfo;
-import com.sun.xml.bind.v2.model.runtime.RuntimePropertyInfo;
-import com.sun.xml.bind.v2.model.runtime.RuntimeReferencePropertyInfo;
-import com.sun.xml.bind.v2.model.runtime.RuntimeTypeInfoSet;
-import com.sun.xml.bind.v2.model.runtime.RuntimeTypeRef;
-import com.sun.xml.bind.v2.model.runtime.RuntimeValuePropertyInfo;
-import com.sun.xml.bind.v2.runtime.JAXBContextImpl;
-import com.sun.xml.bind.v2.runtime.Transducer;
-import com.sun.xml.bind.v2.runtime.reflect.Accessor;
 
 public class RiModelBuilder {
     private final JAXBContextImpl context;

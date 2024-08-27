@@ -33,22 +33,16 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package org.metatype.sxc.xpath;
 
-import java.lang.reflect.InvocationTargetException;
-import java.net.URL;
+import com.ctc.wstx.stax.WstxInputFactory;
+import org.w3c.dom.Document;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.transform.dom.DOMSource;
-
-import org.w3c.dom.Document;
-
-import com.ctc.wstx.stax.WstxInputFactory;
-import org.metatype.sxc.xpath.XPathBuilder;
-import org.metatype.sxc.xpath.XPathEvaluator;
-import org.metatype.sxc.xpath.XPathEvent;
-import org.metatype.sxc.xpath.XPathEventHandler;
+import java.lang.reflect.InvocationTargetException;
+import java.net.URL;
 
 class StreaxPerformance {
     

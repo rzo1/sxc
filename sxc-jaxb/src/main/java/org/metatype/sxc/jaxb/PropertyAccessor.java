@@ -17,12 +17,10 @@
  */
 package org.metatype.sxc.jaxb;
 
-import java.lang.reflect.Method;
-
-import javax.xml.bind.JAXBException;
-
-import org.metatype.sxc.jaxb.RuntimeContext;
+import jakarta.xml.bind.JAXBException;
 import org.metatype.sxc.util.XoXMLStreamReader;
+
+import java.lang.reflect.Method;
 
 public class PropertyAccessor<BeanType, FieldType> {
     public final Method getter;

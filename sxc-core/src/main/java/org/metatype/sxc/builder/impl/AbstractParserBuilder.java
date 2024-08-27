@@ -1,9 +1,5 @@
 package org.metatype.sxc.builder.impl;
 
-import org.metatype.sxc.builder.BuildException;
-import org.metatype.sxc.builder.CodeBody;
-import org.metatype.sxc.builder.ParserBuilder;
-import org.metatype.sxc.util.XoXMLStreamReader;
 import com.sun.codemodel.JBlock;
 import com.sun.codemodel.JCodeModel;
 import com.sun.codemodel.JDefinedClass;
@@ -11,11 +7,16 @@ import com.sun.codemodel.JExpression;
 import com.sun.codemodel.JMethod;
 import com.sun.codemodel.JType;
 import com.sun.codemodel.JVar;
+import org.metatype.sxc.builder.BuildException;
+import org.metatype.sxc.builder.CodeBody;
+import org.metatype.sxc.builder.ParserBuilder;
+import org.metatype.sxc.util.XoXMLStreamReader;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import static java.beans.Introspector.decapitalize;
 
 public abstract class AbstractParserBuilder implements ParserBuilder {

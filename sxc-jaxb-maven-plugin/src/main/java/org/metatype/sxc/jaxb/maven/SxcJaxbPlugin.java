@@ -1,17 +1,17 @@
 package org.metatype.sxc.jaxb.maven;
 
+import jakarta.xml.bind.JAXBException;
+import org.apache.maven.plugin.AbstractMojo;
+import org.apache.maven.plugin.MojoExecutionException;
+import org.apache.maven.project.MavenProject;
+import org.metatype.sxc.jaxb.JAXBGenerator;
+
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.Arrays;
 import java.util.Map;
-import javax.xml.bind.JAXBException;
-
-import org.metatype.sxc.jaxb.JAXBGenerator;
-import org.apache.maven.plugin.AbstractMojo;
-import org.apache.maven.plugin.MojoExecutionException;
-import org.apache.maven.project.MavenProject;
 
 /**
  * @goal generate

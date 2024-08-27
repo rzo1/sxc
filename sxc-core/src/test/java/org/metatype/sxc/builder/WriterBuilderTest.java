@@ -1,18 +1,16 @@
 package org.metatype.sxc.builder;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-
-import javax.xml.namespace.QName;
-
-import org.w3c.dom.Document;
-
+import com.sun.codemodel.JCodeModel;
+import com.sun.codemodel.JType;
 import org.metatype.sxc.Context;
 import org.metatype.sxc.Writer;
 import org.metatype.sxc.builder.impl.BuilderImpl;
 import org.metatype.sxc.util.XoTestCase;
-import com.sun.codemodel.JCodeModel;
-import com.sun.codemodel.JType;
+import org.w3c.dom.Document;
+
+import javax.xml.namespace.QName;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 
 public class WriterBuilderTest extends XoTestCase {
 

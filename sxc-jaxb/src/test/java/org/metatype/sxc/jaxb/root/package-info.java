@@ -15,5 +15,5 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://metatype.org/root", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+@jakarta.xml.bind.annotation.XmlSchema(namespace = "http://metatype.org/root", elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED)
 package org.metatype.sxc.jaxb.root;

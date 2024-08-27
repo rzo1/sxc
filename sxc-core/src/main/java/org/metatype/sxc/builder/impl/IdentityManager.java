@@ -1,9 +1,9 @@
 package org.metatype.sxc.builder.impl;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.HashSet;
-import java.util.Arrays;
 
 public class IdentityManager {
     private final Set<String> ids = new TreeSet<String>();

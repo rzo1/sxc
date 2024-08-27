@@ -17,17 +17,17 @@
  */
 package org.metatype.sxc.jaxb;
 
-import java.io.InputStream;
-import java.io.OutputStream;
-import javax.xml.namespace.QName;
-import javax.xml.stream.XMLStreamReader;
-import javax.xml.stream.XMLStreamWriter;
-
 import org.metatype.sxc.util.XmlFactories;
 import org.metatype.sxc.util.XoXMLStreamReader;
 import org.metatype.sxc.util.XoXMLStreamReaderImpl;
 import org.metatype.sxc.util.XoXMLStreamWriter;
 import org.metatype.sxc.util.XoXMLStreamWriterImpl;
+
+import javax.xml.namespace.QName;
+import javax.xml.stream.XMLStreamReader;
+import javax.xml.stream.XMLStreamWriter;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 public abstract class JAXBObject<T> extends JAXBClass<T> {
     protected QName xmlRootElement;

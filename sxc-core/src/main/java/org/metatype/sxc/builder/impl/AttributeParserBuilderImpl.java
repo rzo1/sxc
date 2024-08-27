@@ -1,8 +1,5 @@
 package org.metatype.sxc.builder.impl;
 
-import javax.xml.stream.XMLStreamException;
-
-import org.metatype.sxc.builder.ParserBuilder;
 import com.sun.codemodel.JBlock;
 import com.sun.codemodel.JClass;
 import com.sun.codemodel.JConditional;
@@ -11,6 +8,9 @@ import com.sun.codemodel.JExpression;
 import com.sun.codemodel.JInvocation;
 import com.sun.codemodel.JMethod;
 import com.sun.codemodel.JVar;
+import org.metatype.sxc.builder.ParserBuilder;
+
+import javax.xml.stream.XMLStreamException;
 
 public class AttributeParserBuilderImpl extends AbstractParserBuilder {
     private ElementParserBuilderImpl parent;

@@ -1,5 +1,8 @@
 package org.metatype.sxc.compiler;
 
+import org.metatype.sxc.builder.BuildException;
+import org.metatype.sxc.util.Util;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -16,9 +19,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import org.metatype.sxc.builder.BuildException;
-import org.metatype.sxc.util.Util;
 
 public class JavacCompiler extends Compiler {
     public ClassLoader compile(Map<String, File> sources) {

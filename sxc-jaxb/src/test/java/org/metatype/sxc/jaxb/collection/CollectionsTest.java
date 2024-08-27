@@ -17,15 +17,15 @@
  */
 package org.metatype.sxc.jaxb.collection;
 
-import java.io.ByteArrayOutputStream;
-import java.io.ByteArrayInputStream;
-import java.util.Collection;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.JAXBException;
-
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Marshaller;
 import org.metatype.sxc.jaxb.JAXBContextImpl;
 import org.metatype.sxc.util.XoTestCase;
 import org.w3c.dom.Document;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.util.Collection;
 
 public class CollectionsTest extends XoTestCase {
     protected JAXBContextImpl ctx;

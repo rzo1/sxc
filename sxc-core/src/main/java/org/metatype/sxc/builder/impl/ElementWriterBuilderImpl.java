@@ -1,24 +1,25 @@
 package org.metatype.sxc.builder.impl;
 
-import static java.beans.Introspector.decapitalize;
-import javax.xml.namespace.QName;
-import javax.xml.stream.XMLStreamException;
-
-import org.metatype.sxc.Context;
-import org.metatype.sxc.Writer;
-import org.metatype.sxc.builder.BuildException;
-import org.metatype.sxc.builder.ElementWriterBuilder;
-import org.metatype.sxc.builder.WriterBuilder;
-import static org.metatype.sxc.builder.impl.IdentityManager.capitalize;
 import com.sun.codemodel.JBlock;
 import com.sun.codemodel.JClassAlreadyExistsException;
 import com.sun.codemodel.JConditional;
+import com.sun.codemodel.JDefinedClass;
 import com.sun.codemodel.JExpr;
 import com.sun.codemodel.JExpression;
 import com.sun.codemodel.JMethod;
 import com.sun.codemodel.JMod;
 import com.sun.codemodel.JType;
-import com.sun.codemodel.JDefinedClass;
+import org.metatype.sxc.Context;
+import org.metatype.sxc.Writer;
+import org.metatype.sxc.builder.BuildException;
+import org.metatype.sxc.builder.ElementWriterBuilder;
+import org.metatype.sxc.builder.WriterBuilder;
+
+import javax.xml.namespace.QName;
+import javax.xml.stream.XMLStreamException;
+
+import static java.beans.Introspector.decapitalize;
+import static org.metatype.sxc.builder.impl.IdentityManager.capitalize;
 
 public class ElementWriterBuilderImpl extends AbstractWriterBuilder implements ElementWriterBuilder {
 

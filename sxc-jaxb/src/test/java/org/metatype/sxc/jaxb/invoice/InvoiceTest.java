@@ -17,22 +17,20 @@
  */
 package org.metatype.sxc.jaxb.invoice;
 
-import java.io.ByteArrayOutputStream;
-import java.util.List;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.Marshaller;
-import javax.xml.datatype.XMLGregorianCalendar;
-
+import com.sun.xml.bind.v2.ContextFactory;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Marshaller;
 import org.apache.cxf.courseware.invoice.Customer;
 import org.apache.cxf.courseware.invoice.Invoice;
 import org.apache.cxf.courseware.invoice.InvoiceLine;
 import org.apache.cxf.courseware.invoice.SupportLevel;
-import org.w3c.dom.Document;
-
 import org.metatype.sxc.jaxb.JAXBContextImpl;
 import org.metatype.sxc.util.XoTestCase;
-import com.sun.xml.bind.v2.ContextFactory;
+import org.w3c.dom.Document;
+
+import javax.xml.datatype.XMLGregorianCalendar;
+import java.io.ByteArrayOutputStream;
+import java.util.List;
 
 public class InvoiceTest extends XoTestCase {
     public void testNoHeader() throws Exception {

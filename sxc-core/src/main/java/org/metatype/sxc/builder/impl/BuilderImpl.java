@@ -1,8 +1,13 @@
 package org.metatype.sxc.builder.impl;
 
-import java.io.File;
-import java.io.IOException;
-
+import com.sun.codemodel.CodeWriter;
+import com.sun.codemodel.JClass;
+import com.sun.codemodel.JClassAlreadyExistsException;
+import com.sun.codemodel.JCodeModel;
+import com.sun.codemodel.JDefinedClass;
+import com.sun.codemodel.JExpr;
+import com.sun.codemodel.JMethod;
+import com.sun.codemodel.JMod;
 import org.metatype.sxc.Context;
 import org.metatype.sxc.Reader;
 import org.metatype.sxc.Writer;
@@ -12,14 +17,9 @@ import org.metatype.sxc.builder.ElementParserBuilder;
 import org.metatype.sxc.builder.ElementWriterBuilder;
 import org.metatype.sxc.compiler.Compiler;
 import org.metatype.sxc.util.Util;
-import com.sun.codemodel.CodeWriter;
-import com.sun.codemodel.JClass;
-import com.sun.codemodel.JClassAlreadyExistsException;
-import com.sun.codemodel.JCodeModel;
-import com.sun.codemodel.JDefinedClass;
-import com.sun.codemodel.JExpr;
-import com.sun.codemodel.JMethod;
-import com.sun.codemodel.JMod;
+
+import java.io.File;
+import java.io.IOException;
 
 public class BuilderImpl implements Builder {
     private ElementParserBuilderImpl parserBuilder;

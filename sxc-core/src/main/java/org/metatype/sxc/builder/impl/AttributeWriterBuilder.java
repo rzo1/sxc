@@ -1,15 +1,16 @@
 package org.metatype.sxc.builder.impl;
 
-import javax.xml.namespace.QName;
-import javax.xml.stream.XMLStreamException;
-
-import org.metatype.sxc.builder.WriterBuilder;
-import static org.metatype.sxc.builder.impl.IdentityManager.capitalize;
 import com.sun.codemodel.JBlock;
 import com.sun.codemodel.JClass;
 import com.sun.codemodel.JExpr;
 import com.sun.codemodel.JExpression;
 import com.sun.codemodel.JType;
+import org.metatype.sxc.builder.WriterBuilder;
+
+import javax.xml.namespace.QName;
+import javax.xml.stream.XMLStreamException;
+
+import static org.metatype.sxc.builder.impl.IdentityManager.capitalize;
 
 public class AttributeWriterBuilder extends AbstractWriterBuilder implements WriterBuilder {
     public AttributeWriterBuilder(ElementWriterBuilderImpl parent, QName name, JType type) {

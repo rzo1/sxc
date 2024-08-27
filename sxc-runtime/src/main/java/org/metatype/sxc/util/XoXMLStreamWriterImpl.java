@@ -1,27 +1,27 @@
 package org.metatype.sxc.util;
 
-import java.util.Iterator;
-import java.util.Collection;
+import org.w3c.dom.Attr;
+import org.w3c.dom.CDATASection;
+import org.w3c.dom.Comment;
+import org.w3c.dom.Document;
+import org.w3c.dom.DocumentFragment;
+import org.w3c.dom.DocumentType;
+import org.w3c.dom.Element;
+import org.w3c.dom.Entity;
+import org.w3c.dom.EntityReference;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.Notation;
+import org.w3c.dom.ProcessingInstruction;
+import org.w3c.dom.Text;
+
 import javax.xml.namespace.NamespaceContext;
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
-
-import org.w3c.dom.Element;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Attr;
-import org.w3c.dom.NodeList;
-import org.w3c.dom.Node;
-import org.w3c.dom.CDATASection;
-import org.w3c.dom.Entity;
-import org.w3c.dom.Text;
-import org.w3c.dom.Document;
-import org.w3c.dom.EntityReference;
-import org.w3c.dom.ProcessingInstruction;
-import org.w3c.dom.DocumentFragment;
-import org.w3c.dom.Notation;
-import org.w3c.dom.Comment;
-import org.w3c.dom.DocumentType;
+import java.util.Collection;
+import java.util.Iterator;
 
 public class XoXMLStreamWriterImpl implements XoXMLStreamWriter {
     private final static String XSI_NS = "http://www.w3.org/2001/XMLSchema-instance";

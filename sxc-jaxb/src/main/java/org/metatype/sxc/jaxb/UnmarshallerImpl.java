@@ -17,22 +17,25 @@
  */
 package org.metatype.sxc.jaxb;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.io.File;
-import java.io.InputStream;
-import java.io.Reader;
-import java.net.URL;
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.UnmarshalException;
-import javax.xml.bind.ValidationEvent;
-import javax.xml.bind.ValidationEventHandler;
-import javax.xml.bind.PropertyException;
-import javax.xml.bind.annotation.adapters.XmlAdapter;
-import javax.xml.bind.attachment.AttachmentUnmarshaller;
-import javax.xml.bind.helpers.ValidationEventImpl;
-import javax.xml.bind.helpers.DefaultValidationEventHandler;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.PropertyException;
+import jakarta.xml.bind.UnmarshalException;
+import jakarta.xml.bind.Unmarshaller;
+import jakarta.xml.bind.ValidationEvent;
+import jakarta.xml.bind.ValidationEventHandler;
+import jakarta.xml.bind.annotation.adapters.XmlAdapter;
+import jakarta.xml.bind.attachment.AttachmentUnmarshaller;
+import jakarta.xml.bind.helpers.DefaultValidationEventHandler;
+import jakarta.xml.bind.helpers.ValidationEventImpl;
+import org.metatype.sxc.util.RuntimeXMLStreamException;
+import org.metatype.sxc.util.XoXMLStreamReader;
+import org.metatype.sxc.util.XoXMLStreamReaderImpl;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.xml.sax.InputSource;
+import org.xml.sax.XMLReader;
+
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.Duration;
@@ -44,22 +47,16 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.transform.Source;
-import javax.xml.transform.stream.StreamSource;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.sax.SAXSource;
+import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
-
-import org.metatype.sxc.jaxb.ExtendedUnmarshaller;
-import org.metatype.sxc.jaxb.JAXBObject;
-import org.metatype.sxc.jaxb.RuntimeContext;
-import org.metatype.sxc.jaxb.ValidationEventLocatorImpl;
-import org.metatype.sxc.util.XoXMLStreamReader;
-import org.metatype.sxc.util.XoXMLStreamReaderImpl;
-import org.metatype.sxc.util.RuntimeXMLStreamException;
-import org.w3c.dom.Node;
-import org.w3c.dom.Element;
-import org.xml.sax.InputSource;
-import org.xml.sax.XMLReader;
+import java.io.File;
+import java.io.InputStream;
+import java.io.Reader;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 @SuppressWarnings({"unchecked"})
 public class UnmarshallerImpl implements ExtendedUnmarshaller {
@@ -69,7 +66,7 @@ public class UnmarshallerImpl implements ExtendedUnmarshaller {
     private final DatatypeFactory dtFactory;
 
     private final Map<Class<?>, ? super XmlAdapter> adapters = new HashMap<Class<?>, XmlAdapter>();
-    private Listener listener;
+    private Unmarshaller.Listener listener;
     private Schema schema;
     private AttachmentUnmarshaller attachmentUnmarshaller;
     private ValidationEventHandler handler;
@@ -250,7 +247,7 @@ public class UnmarshallerImpl implements ExtendedUnmarshaller {
         return value;
     }
 
-    public Object read(XMLStreamReader xmlStreamReader, Class<?> declaredType, Boolean jaxbElementWrap, RuntimeContext runtimeContext) throws JAXBException {
+    public Object read(XMLStreamReader xmlStreamReader, Class<?> declaredType, Boolean jaxbElementWrap, RuntimeContext runtimeContext) {
         if (xmlStreamReader == null) throw new IllegalArgumentException("xmlStreamReader is null");
         if (runtimeContext == null) throw new IllegalArgumentException("runtimeContext is null");
 
@@ -379,19 +376,23 @@ public class UnmarshallerImpl implements ExtendedUnmarshaller {
             if (e instanceof XMLStreamException) {
                 Throwable cause = e.getCause();
                 if (cause instanceof JAXBException) {
-                    throw (JAXBException) e;
+                    throw new RuntimeException(e);
                 }
-                throw new UnmarshalException(cause == null ? e : cause);
+                throw new RuntimeException(new UnmarshalException(cause == null ? e : cause));
             }
             if (e instanceof JAXBException) {
-                throw (JAXBException) e;
+                throw new RuntimeException(e);
             }
 
             // report fatal error
-            if (getEventHandler() != null) {
-                getEventHandler().handleEvent(new ValidationEventImpl(ValidationEvent.FATAL_ERROR, "Fatal error", new ValidationEventLocatorImpl(reader.getLocation()), e));
+            try {
+                if (getEventHandler() != null) {
+                    getEventHandler().handleEvent(new ValidationEventImpl(ValidationEvent.FATAL_ERROR, "Fatal error", new ValidationEventLocatorImpl(reader.getLocation()), e));
+                }
+            } catch (JAXBException ex) {
+                throw new RuntimeException(ex);
             }
-            throw new UnmarshalException(e);
+            throw new RuntimeException(new UnmarshalException(e));
         }
     }
 
@@ -414,23 +415,27 @@ public class UnmarshallerImpl implements ExtendedUnmarshaller {
         this.handler = handler;
     }
 
-    @SuppressWarnings({"unchecked"})
-    public <A extends XmlAdapter> A getAdapter(Class<A> type) {
-        return (A) adapters.get(type);
-    }
 
-    public void setAdapter(XmlAdapter adapter) {
+
+    @Override
+    public <A extends XmlAdapter<?, ?>> void setAdapter(A adapter) {
         if (adapter == null) throw new IllegalArgumentException("adapter is null");
         setAdapter((Class<XmlAdapter>) adapter.getClass(), adapter);
     }
 
-    public <A extends XmlAdapter> void setAdapter(Class<A> type, A adapter) {
+    @Override
+    public <A extends XmlAdapter<?, ?>> void setAdapter(Class<A> type, A adapter) {
         if (type == null) throw new IllegalArgumentException("type is null");
         if (adapter != null) {
             adapters.put(type, adapter);
         } else {
             adapters.remove(type);
         }
+    }
+
+    @Override
+    public <A extends XmlAdapter<?, ?>> A getAdapter(Class<A> aClass) {
+        return (A) adapters.get(aClass);
     }
 
     public AttachmentUnmarshaller getAttachmentUnmarshaller() {

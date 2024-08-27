@@ -1,7 +1,7 @@
 package org.metatype.sxc.builder.impl;
 
-import com.sun.codemodel.JStatement;
 import com.sun.codemodel.JFormatter;
+import com.sun.codemodel.JStatement;
 
 public class JLineComment implements JStatement {
     private final String comment;
