@@ -17,13 +17,13 @@
  */
 package org.metatype.sxc.jaxb.invoice;
 
-import com.sun.xml.bind.v2.ContextFactory;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.Marshaller;
 import org.apache.cxf.courseware.invoice.Customer;
 import org.apache.cxf.courseware.invoice.Invoice;
 import org.apache.cxf.courseware.invoice.InvoiceLine;
 import org.apache.cxf.courseware.invoice.SupportLevel;
+import org.glassfish.jaxb.runtime.v2.ContextFactory;
 import org.metatype.sxc.jaxb.JAXBContextImpl;
 import org.metatype.sxc.util.XoTestCase;
 import org.w3c.dom.Document;
