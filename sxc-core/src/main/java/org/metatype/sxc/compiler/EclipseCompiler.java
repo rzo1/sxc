@@ -37,8 +37,8 @@ public class EclipseCompiler extends org.metatype.sxc.compiler.Compiler {
     public EclipseCompiler() {
         Map<String, String> settings = new HashMap<String, String>();
         settings.put(CompilerOptions.OPTION_ReportDeprecation, CompilerOptions.GENERATE);
-        settings.put(CompilerOptions.OPTION_TargetPlatform, CompilerOptions.VERSION_1_5);
-        settings.put(CompilerOptions.OPTION_Source, CompilerOptions.VERSION_1_5);
+        settings.put(CompilerOptions.OPTION_TargetPlatform, CompilerOptions.VERSION_17);
+        settings.put(CompilerOptions.OPTION_Source, CompilerOptions.VERSION_17);
         settings.put(CompilerOptions.OPTION_LocalVariableAttribute, CompilerOptions.GENERATE);
         settings.put(CompilerOptions.OPTION_LineNumberAttribute, CompilerOptions.GENERATE);
         settings.put(CompilerOptions.OPTION_SourceFileAttribute, CompilerOptions.GENERATE);
