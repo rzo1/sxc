@@ -51,7 +51,7 @@ public class RootTest extends XoTestCase {
      * NoRoot has no element declaration so xsi:type must be used for JaxB to recognize the type.
      */
     public void testNoRoot() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance(NoRoot.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(NoRoot.class);
 
         JAXBElement<NoRoot> element = asJAXBElement(ctx.createUnmarshaller().unmarshal(getClass().getResource("noRoot.xml")));
 
@@ -78,7 +78,7 @@ public class RootTest extends XoTestCase {
      * AnnotatedRoot has @XmlRootElement annotation
      */
     public void testAnnotatedRoot() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance(AnnotatedRoot.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(AnnotatedRoot.class);
 
         AnnotatedRoot annotatedRoot = (AnnotatedRoot) ctx.createUnmarshaller().unmarshal(getClass().getResource("annotatedRoot.xml"));
 
@@ -102,7 +102,7 @@ public class RootTest extends XoTestCase {
      * Test is initalized with packakage name.
      */
     public void testObjectFactoryRootPackage() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance("org.metatype.sxc.jaxb.root");
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance("org.metatype.sxc.jaxb.root");
         testObjectFactoryRootContext(ctx, "object-factory-root", "objectFactoryRoot.xml");
     }
 
@@ -111,7 +111,7 @@ public class RootTest extends XoTestCase {
      * Test is initalized with ObjectFactory class.
      */
     public void testObjectFactoryRootObjectFactory() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance(ObjectFactory.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(ObjectFactory.class);
         testObjectFactoryRootContext(ctx, "object-factory-root", "objectFactoryRoot.xml");
     }
 
@@ -122,7 +122,7 @@ public class RootTest extends XoTestCase {
      * has no root elements and test should throw an exception.
      */
     public void testObjectFactoryRootClass() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance(ObjectFactoryRoot.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(ObjectFactoryRoot.class);
         try {
             testObjectFactoryRootContext(ctx, "object-factory-root", "objectFactoryRoot.xml");
             fail("excpected UnmarshalException");
@@ -136,7 +136,7 @@ public class RootTest extends XoTestCase {
      * Test is initalized with packakage name.
      */
     public void testAlternateRootNamePackage() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance("org.metatype.sxc.jaxb.root");
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance("org.metatype.sxc.jaxb.root");
         testObjectFactoryRootContext(ctx, "alternate-root-name", "alternateRootName.xml");
     }
 
@@ -145,7 +145,7 @@ public class RootTest extends XoTestCase {
      * Test is initalized with ObjectFactory class.
      */
     public void testAlternateRootNameObjectFactory() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance(ObjectFactory.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(ObjectFactory.class);
         testObjectFactoryRootContext(ctx, "alternate-root-name", "alternateRootName.xml");
     }
 
@@ -174,7 +174,7 @@ public class RootTest extends XoTestCase {
      * Root element from another package
      */
     public void testExternalRoot() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance(ObjectFactory.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(ObjectFactory.class);
 
         JAXBElement<NamedNode> element = asJAXBElement(ctx.createUnmarshaller().unmarshal(getClass().getResource("externalRoot.xml")));
 
@@ -199,7 +199,7 @@ public class RootTest extends XoTestCase {
      * NoEnumRoot has no element declaration so xsi:type must be used for JaxB to recognize the type.
      */
     public void testNoEnumRoot() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance(NoEnumRoot.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(NoEnumRoot.class);
 
         JAXBElement<NoEnumRoot> element = asJAXBElement(ctx.createUnmarshaller().unmarshal(getClass().getResource("noEnumRoot.xml")));
 
@@ -226,7 +226,7 @@ public class RootTest extends XoTestCase {
      * AnnotatedEnumRoot has @XmlRootElement annotation
      */
     public void testAnnotatedEnumRoot() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance(AnnotatedEnumRoot.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(AnnotatedEnumRoot.class);
 
         AnnotatedEnumRoot annotatedEnumRoot = (AnnotatedEnumRoot) ctx.createUnmarshaller().unmarshal(getClass().getResource("annotatedEnumRoot.xml"));
 
@@ -250,7 +250,7 @@ public class RootTest extends XoTestCase {
      * Test is initalized with packakage name.
      */
     public void testObjectFactoryEnumRootPackage() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance("org.metatype.sxc.jaxb.root");
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance("org.metatype.sxc.jaxb.root");
         testObjectFactoryEnumRootContext(ctx, "object-factory-enum-root", "objectFactoryEnumRoot.xml");
     }
 
@@ -259,7 +259,7 @@ public class RootTest extends XoTestCase {
      * Test is initalized with ObjectFactory class.
      */
     public void testObjectFactoryEnumRootObjectFactory() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance(ObjectFactory.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(ObjectFactory.class);
         testObjectFactoryEnumRootContext(ctx, "object-factory-enum-root", "objectFactoryEnumRoot.xml");
     }
 
@@ -270,7 +270,7 @@ public class RootTest extends XoTestCase {
      * has no root elements and test should throw an exception.
      */
     public void testObjectFactoryEnumRootClass() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance(ObjectFactoryEnumRoot.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(ObjectFactoryEnumRoot.class);
         try {
             testObjectFactoryEnumRootContext(ctx, "object-factory-enum-root", "objectFactoryEnumRoot.xml");
             fail("excpected UnmarshalException");
@@ -284,7 +284,7 @@ public class RootTest extends XoTestCase {
      * Test is initalized with packakage name.
      */
     public void testAlternateEnumRootNamePackage() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance("org.metatype.sxc.jaxb.root");
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance("org.metatype.sxc.jaxb.root");
         testObjectFactoryEnumRootContext(ctx, "alternate-enum-root-name", "alternateEnumRootName.xml");
     }
 
@@ -293,7 +293,7 @@ public class RootTest extends XoTestCase {
      * Test is initalized with ObjectFactory class.
      */
     public void testAlternateEnumRootNameObjectFactory() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance(ObjectFactory.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(ObjectFactory.class);
         testObjectFactoryEnumRootContext(ctx, "alternate-enum-root-name", "alternateEnumRootName.xml");
     }
 
@@ -319,52 +319,52 @@ public class RootTest extends XoTestCase {
     }
 
     public void testStringRoot() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance(ObjectFactory.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(ObjectFactory.class);
         testStandardTypeRootContext(ctx, String.class, "test string");
     }
 
     public void testShortRoot() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance(ObjectFactory.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(ObjectFactory.class);
         testStandardTypeRootContext(ctx, Short.class, (short) 42);
     }
 
     public void testIntegerRoot() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance(ObjectFactory.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(ObjectFactory.class);
         testStandardTypeRootContext(ctx, Integer.class, 42);
     }
 
     public void testLongRoot() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance(ObjectFactory.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(ObjectFactory.class);
         testStandardTypeRootContext(ctx, Long.class, (long) 42);
     }
 
     public void testBigintegerRoot() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance(ObjectFactory.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(ObjectFactory.class);
         testStandardTypeRootContext(ctx, BigInteger.class, new BigInteger("12345678901234567890"));
     }
 
     public void testFloatRoot() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance(ObjectFactory.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(ObjectFactory.class);
         testStandardTypeRootContext(ctx, Float.class, (float) 42.42);
     }
 
     public void testDoubleRoot() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance(ObjectFactory.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(ObjectFactory.class);
         testStandardTypeRootContext(ctx, Double.class, 42.0042);
     }
 
     public void testBigdecimalRoot() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance(ObjectFactory.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(ObjectFactory.class);
         testStandardTypeRootContext(ctx, BigDecimal.class, new BigDecimal("12345678901234567890.01234567890123456789"));
     }
 
     public void testBooleanRoot() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance(ObjectFactory.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(ObjectFactory.class);
         testStandardTypeRootContext(ctx, Boolean.class, true);
     }
 
     public void testCalendarRoot() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance(ObjectFactory.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(ObjectFactory.class);
         GregorianCalendar calendar = new GregorianCalendar();
 
         String xmlValue = DatatypeFactory.newInstance().newXMLGregorianCalendar(calendar).toString();
@@ -394,7 +394,7 @@ public class RootTest extends XoTestCase {
     }
 
     public void testDateRoot() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance(ObjectFactory.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(ObjectFactory.class);
         Date date = new Date();
         GregorianCalendar calendar = new GregorianCalendar();
         calendar.setTime(date);
@@ -402,7 +402,7 @@ public class RootTest extends XoTestCase {
     }
 
     public void testQNameRoot() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance(ObjectFactory.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(ObjectFactory.class);
 
         QName expectedValue = new QName(ObjectFactory.ROOT_URI, "qname", "");
         String xml = "<QName-root xmlns=\"http://metatype.org/root\" xmlns:x=\"http://metatype.org/root\">\n" +
@@ -430,17 +430,17 @@ public class RootTest extends XoTestCase {
     }
 
     public void testURIRoot() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance(ObjectFactory.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(ObjectFactory.class);
         testStandardTypeRootContext(ctx, URI.class, new URI("scheme", "userInfo", "host", 42, "/path", "query", "fragment"));
     }
 
     public void testDurationRoot() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance(ObjectFactory.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(ObjectFactory.class);
         testStandardTypeRootContext(ctx, Duration.class, DatatypeFactory.newInstance().newDuration(4200));
     }
 
     public void testXMLGregorianCalendarRoot() throws Exception {
-        JAXBContext ctx = JAXBContextImpl.newInstance(ObjectFactory.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(ObjectFactory.class);
         testStandardTypeRootContext(ctx, XMLGregorianCalendar.class, DatatypeFactory.newInstance().newXMLGregorianCalendar(new GregorianCalendar()));
     }
 
@@ -450,9 +450,7 @@ public class RootTest extends XoTestCase {
 
     private <T> void testStandardTypeRootContext(JAXBContext ctx, Class<T> type, T expectedValue, String xmlValue) throws Exception {
         String elementName = decapitalize(type.getSimpleName()) + "-root";
-        String xml = "<" + elementName + " xmlns=\"http://metatype.org/root\">\n" +
-                "    " + xmlValue + "\n" +
-                "</" + elementName + ">";
+        String xml = "<" + elementName + " xmlns=\"http://metatype.org/root\">" + xmlValue + "</" + elementName + ">";
 
         JAXBElement<T> element = asJAXBElement(ctx.createUnmarshaller().unmarshal(new ByteArrayInputStream(xml.getBytes())));
 

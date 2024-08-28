@@ -69,7 +69,7 @@ public class NodeTest extends XoTestCase {
     @SuppressWarnings("unchecked")
     public void testNestedNodes() throws Exception {
         System.setProperty("org.metatype.sxc.output.directory", "target/tmp-jaxb");
-        JAXBContext ctx = JAXBContextImpl.newInstance(Node.class, NamedNode.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(Node.class, NamedNode.class);
 
         StreamSource source = new StreamSource(getClass().getResourceAsStream("node2.xml"));
         JAXBElement<?> jn = (JAXBElement<?>) ctx.createUnmarshaller().unmarshal(source);

@@ -46,7 +46,7 @@ import java.util.logging.Logger;
 public class JAXBContextImpl extends JAXBContext {
     private static final Logger logger = Logger.getLogger(JAXBContextImpl.class.getName());
 
-    public static synchronized JAXBContextImpl newInstance(Class... classes) throws JAXBException {
+    public static synchronized JAXBContextImpl newSxcInstance(Class... classes) throws JAXBException {
         JAXBContextImpl jaxbContext = createContext(classes, Collections.<String, Object>emptyMap());
         return jaxbContext;
     }
@@ -56,17 +56,17 @@ public class JAXBContextImpl extends JAXBContext {
         return jaxbContext;
     }
 
-    public static JAXBContext newInstance(String contextPath) throws JAXBException {
+    public static JAXBContext newSxcInstance(String contextPath) throws JAXBException {
         JAXBContextImpl jaxbContext = createContext(contextPath, Thread.currentThread().getContextClassLoader(), Collections.<String, Object>emptyMap());
         return jaxbContext;
     }
 
-    public static JAXBContext newInstance(String contextPath, ClassLoader classLoader) throws JAXBException {
+    public static JAXBContext newSxcInstance(String contextPath, ClassLoader classLoader) throws JAXBException {
         JAXBContextImpl jaxbContext = createContext(contextPath, classLoader, Collections.<String, Object>emptyMap());
         return jaxbContext;
     }
 
-    public static synchronized JAXBContextImpl newInstance(String contextPath, ClassLoader classLoader, Map<String, ?> properties) throws JAXBException {
+    public static synchronized JAXBContextImpl newSxcInstance(String contextPath, ClassLoader classLoader, Map<String, ?> properties) throws JAXBException {
         JAXBContextImpl jaxbContext = createContext(contextPath, classLoader, properties);
         return jaxbContext;
     }

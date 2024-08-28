@@ -276,6 +276,6 @@ public class XmlListTest extends XoTestCase {
     public void setUp() throws Exception {
         super.setUp();
         System.setProperty("org.metatype.sxc.output.directory", "target/tmp-jaxb");
-        ctx = JAXBContextImpl.newInstance(XmlListElement.class, ListValues.class);
+        ctx = JAXBContextImpl.newSxcInstance(XmlListElement.class, ListValues.class);
     }
 }
