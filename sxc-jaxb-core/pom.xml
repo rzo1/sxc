@@ -3,25 +3,25 @@
 
   <parent>
     <artifactId>sxc</artifactId>
-    <groupId>org.metatype.sxc</groupId>
-    <version>0.9-SNAPSHOT</version>
+    <groupId>io.github.rzo1.org.metatype.sxc</groupId>
+    <version>0.9</version>
   </parent>
 
-  <groupId>org.metatype.sxc</groupId>
+  <groupId>io.github.rzo1.org.metatype.sxc</groupId>
   <artifactId>sxc-jaxb-core</artifactId>
-  <version>0.9-SNAPSHOT</version>
+  <version>0.9</version>
   <name>SXC JAXB :: Core</name>
 
   <packaging>jar</packaging>
 
   <dependencies>
     <dependency>
-      <groupId>org.metatype.sxc</groupId>
+      <groupId>io.github.rzo1.org.metatype.sxc</groupId>
       <artifactId>sxc-runtime</artifactId>
     </dependency>
 
     <dependency>
-      <groupId>org.metatype.sxc</groupId>
+      <groupId>io.github.rzo1.org.metatype.sxc</groupId>
       <artifactId>sxc-core</artifactId>
       <optional>true</optional>
     </dependency>

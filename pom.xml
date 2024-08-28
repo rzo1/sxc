@@ -7,9 +7,9 @@
     <version>7</version>
   </parent>
 
-  <groupId>org.metatype.sxc</groupId>
+  <groupId>io.github.rzo1.org.metatype.sxc</groupId>
   <artifactId>sxc</artifactId>
-  <version>0.9-SNAPSHOT</version>
+  <version>0.9</version>
   <name>Simple XML Compiler</name>
 
   <packaging>pom</packaging>
@@ -17,10 +17,31 @@
   <inceptionYear>2007</inceptionYear>
 
   <scm>
-    <connection>scm:git:https://github.com/dblevins/sxc.git</connection>
-    <developerConnection>scm:git:https://github.com/dblevins/sxc.git</developerConnection>
-    <url>https://github.com/dblevins/sxc</url>
+    <connection>scm:git:https://github.com/rzo1/sxc.git</connection>
+    <developerConnection>scm:git:https://github.com/rzo1/sxc.git</developerConnection>
+    <url>https://github.com/rzo1/sxc</url>
   </scm>
+
+  <licenses>
+    <license>
+      <name>Apache 2.0</name>
+      <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+      <comments>A business-friendly OSS license</comments>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <id>rzo1</id>
+      <name>Richard Zowalla</name>
+    </developer>
+    <developer>
+      <id>jungm</id>
+      <name>Markus Jung</name>
+    </developer>
+  </developers>
+
 
   <modules>
     <module>sxc-runtime</module>
@@ -34,32 +55,32 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>org.metatype.sxc</groupId>
+        <groupId>io.github.rzo1.org.metatype.sxc</groupId>
         <artifactId>sxc-core</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.metatype.sxc</groupId>
+        <groupId>io.github.rzo1.org.metatype.sxc</groupId>
         <artifactId>sxc-runtime</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.metatype.sxc</groupId>
+        <groupId>io.github.rzo1.org.metatype.sxc</groupId>
         <artifactId>sxc-jaxb</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.metatype.sxc</groupId>
+        <groupId>io.github.rzo1.org.metatype.sxc</groupId>
         <artifactId>sxc-jaxb-core</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.metatype.sxc</groupId>
+        <groupId>io.github.rzo1.org.metatype.sxc</groupId>
         <artifactId>sxc-drools</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.metatype.sxc</groupId>
+        <groupId>io.github.rzo1.org.metatype.sxc</groupId>
         <artifactId>sxc-xpath</artifactId>
         <version>${project.version}</version>
       </dependency>
@@ -114,6 +135,50 @@
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.3.1</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.8.0</version>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
+          <!-- workaround for httpss://bugs.openjdk.java.net/browse/JDK-8212233 -->
+          <javaApiLinks>
+            <property>
+              <name>foo</name>
+              <value>bar</value>
+            </property>
+          </javaApiLinks>
+          <encoding>utf-8</encoding>
+          <show>public</show>
+          <detectOfflineLinks>false</detectOfflineLinks>
+          <detectJavaApiLink>false</detectJavaApiLink>
+          <!-- Speeds up the build of the javadocs -->
+          <quiet>true</quiet>
+          <use>false</use>
+          <doclint>none</doclint>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.0</version>
         <configuration>
@@ -125,6 +190,29 @@
         <version>2.3</version>
         <configuration>
           <argLine>--add-exports java.base/jdk.internal.misc=ALL-UNNAMED</argLine>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>3.2.5</version>
+        <executions>
+          <execution>
+            <id>sign-artifacts</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.sonatype.central</groupId>
+        <artifactId>central-publishing-maven-plugin</artifactId>
+        <version>0.5.0</version>
+        <extensions>true</extensions>
+        <configuration>
+          <publishingServerId>central</publishingServerId>
         </configuration>
       </plugin>
     </plugins>
