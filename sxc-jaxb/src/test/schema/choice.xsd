@@ -21,8 +21,8 @@
     targetNamespace="http://sxc.metatype.org/choice"
     xmlns:tns="http://sxc.metatype.org/choice"
     elementFormDefault="qualified"        
-    xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
-    jxb:version="2.0">
+    xmlns:jxb="https://jakarta.ee/xml/ns/jaxb"
+    jxb:version="3.0">
             
 
     <xsd:group id="ChoiceGroup" name="ChoiceGroup">

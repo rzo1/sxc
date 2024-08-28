@@ -21,8 +21,8 @@
     targetNamespace="http://www.sun.com/japex/testSuite"
     xmlns:tns="http://www.sun.com/japex/testSuite"
     elementFormDefault="qualified"        
-    xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
-    jxb:version="2.0">
+    xmlns:jxb="https://jakarta.ee/xml/ns/jaxb"
+    jxb:version="3.0">
             
     <!-- Adds the suffix Element to avoid name clashes -->
     <xsd:annotation>
