@@ -32,7 +32,7 @@ public class SimpleGlobalTest extends XoTestCase {
     
     public void testJAXBContextUnmarshal() throws Exception {
         System.setProperty("org.metatype.sxc.output.directory", "target/tmp-jaxb");
-        JAXBContext ctx = JAXBContextImpl.newInstance("com.everything", getClass().getClassLoader(), null);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance("com.everything", getClass().getClassLoader(), null);
         
         XMLStreamReader reader = getXSR("<string xmlns=\"http://everything.com\">Dan</string>");
         JAXBElement<?> c = (JAXBElement<?>) ctx.createUnmarshaller().unmarshal(reader);

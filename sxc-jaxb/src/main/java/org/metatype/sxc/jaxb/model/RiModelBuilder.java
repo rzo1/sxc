@@ -181,7 +181,7 @@ public class RiModelBuilder {
             Property anyAttributeProperty;
 
             // if we have an AdaptedAccessor wrapper, strip off wrapper but preserve the name of the adapter class
-            if ("com.sun.xml.bind.v2.runtime.reflect.AdaptedAccessor".equals(anyAttributeAccessor.getClass().getName())) {
+            if ("org.glassfish.jaxb.runtime.v2.reflect.AdaptedAccessor".equals(anyAttributeAccessor.getClass().getName())) {
                 try {
                     Field coreField = anyAttributeAccessor.getClass().getDeclaredField("core");
                     coreField.setAccessible(true);

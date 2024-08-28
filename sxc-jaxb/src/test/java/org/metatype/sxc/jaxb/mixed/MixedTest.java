@@ -32,7 +32,7 @@ public class MixedTest extends XoTestCase {
     public void testMixedElement() throws Exception {
         System.setProperty("org.metatype.sxc.output.directory", "target/tmp-jaxb");
 
-        JAXBContext ctx = JAXBContextImpl.newInstance(MixedElement.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(MixedElement.class);
 
         Unmarshaller unmarshaller = ctx.createUnmarshaller();
         unmarshaller.setEventHandler(new DefaultValidationEventHandler());

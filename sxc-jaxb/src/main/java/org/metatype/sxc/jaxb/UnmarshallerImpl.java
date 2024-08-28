@@ -247,7 +247,7 @@ public class UnmarshallerImpl implements ExtendedUnmarshaller {
         return value;
     }
 
-    public Object read(XMLStreamReader xmlStreamReader, Class<?> declaredType, Boolean jaxbElementWrap, RuntimeContext runtimeContext) {
+    public Object read(XMLStreamReader xmlStreamReader, Class<?> declaredType, Boolean jaxbElementWrap, RuntimeContext runtimeContext) throws JAXBException {
         if (xmlStreamReader == null) throw new IllegalArgumentException("xmlStreamReader is null");
         if (runtimeContext == null) throw new IllegalArgumentException("runtimeContext is null");
 
@@ -376,23 +376,19 @@ public class UnmarshallerImpl implements ExtendedUnmarshaller {
             if (e instanceof XMLStreamException) {
                 Throwable cause = e.getCause();
                 if (cause instanceof JAXBException) {
-                    throw new RuntimeException(e);
+                    throw (JAXBException) e;
                 }
-                throw new RuntimeException(new UnmarshalException(cause == null ? e : cause));
+                throw new UnmarshalException(cause == null ? e : cause);
             }
             if (e instanceof JAXBException) {
-                throw new RuntimeException(e);
+                throw (JAXBException) e;
             }
 
             // report fatal error
-            try {
-                if (getEventHandler() != null) {
-                    getEventHandler().handleEvent(new ValidationEventImpl(ValidationEvent.FATAL_ERROR, "Fatal error", new ValidationEventLocatorImpl(reader.getLocation()), e));
-                }
-            } catch (JAXBException ex) {
-                throw new RuntimeException(ex);
+            if (getEventHandler() != null) {
+                getEventHandler().handleEvent(new ValidationEventImpl(ValidationEvent.FATAL_ERROR, "Fatal error", new ValidationEventLocatorImpl(reader.getLocation()), e));
             }
-            throw new RuntimeException(new UnmarshalException(e));
+            throw new UnmarshalException(e);
         }
     }
 

@@ -37,7 +37,7 @@ public class AnyTest extends XoTestCase {
     public void testAnyElement() throws Exception {
         System.setProperty("org.metatype.sxc.output.directory", "target/tmp-jaxb");
 
-        JAXBContext ctx = JAXBContextImpl.newInstance(AnyElement.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(AnyElement.class);
 
         AnyElement anyElement = (AnyElement) ctx.createUnmarshaller().unmarshal(getClass().getResourceAsStream("anyElement.xml"));
 
@@ -75,7 +75,7 @@ public class AnyTest extends XoTestCase {
     public void testAnyElementArray() throws Exception {
         System.setProperty("org.metatype.sxc.output.directory", "target/tmp-jaxb");
 
-        JAXBContext ctx = JAXBContextImpl.newInstance(AnyElementArray.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(AnyElementArray.class);
 
         StreamSource source = new StreamSource(getClass().getResourceAsStream("anyElement.xml"));
         JAXBElement<AnyElementArray> jaxbAnyElementArray = ctx.createUnmarshaller().unmarshal(source, AnyElementArray.class);
@@ -121,7 +121,7 @@ public class AnyTest extends XoTestCase {
     public void testAnyElementList() throws Exception {
         System.setProperty("org.metatype.sxc.output.directory", "target/tmp-jaxb");
 
-        JAXBContext ctx = JAXBContextImpl.newInstance(AnyElementList.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(AnyElementList.class);
 
         StreamSource source = new StreamSource(getClass().getResourceAsStream("anyElement.xml"));
         JAXBElement<AnyElementList> jaxbAnyElementList = ctx.createUnmarshaller().unmarshal(source, AnyElementList.class);
@@ -167,7 +167,7 @@ public class AnyTest extends XoTestCase {
     public void testAnyObject() throws Exception {
         System.setProperty("org.metatype.sxc.output.directory", "target/tmp-jaxb");
 
-        JAXBContext ctx = JAXBContextImpl.newInstance(AnyObject.class, Three.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(AnyObject.class, Three.class);
 
         StreamSource source = new StreamSource(getClass().getResourceAsStream("anyElement.xml"));
         JAXBElement<AnyObject> jaxbAnyObject = ctx.createUnmarshaller().unmarshal(source, AnyObject.class);
@@ -198,7 +198,7 @@ public class AnyTest extends XoTestCase {
     public void testAnyObjecttArray() throws Exception {
         System.setProperty("org.metatype.sxc.output.directory", "target/tmp-jaxb");
 
-        JAXBContext ctx = JAXBContextImpl.newInstance(AnyObjectArray.class, Three.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(AnyObjectArray.class, Three.class);
 
         StreamSource source = new StreamSource(getClass().getResourceAsStream("anyElement.xml"));
         JAXBElement<AnyObjectArray> jaxbAnyObjectArray = ctx.createUnmarshaller().unmarshal(source, AnyObjectArray.class);
@@ -244,7 +244,7 @@ public class AnyTest extends XoTestCase {
     public void testAnyObjectList() throws Exception {
         System.setProperty("org.metatype.sxc.output.directory", "target/tmp-jaxb");
 
-        JAXBContext ctx = JAXBContextImpl.newInstance(AnyObjectList.class, Three.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(AnyObjectList.class, Three.class);
 
         StreamSource source = new StreamSource(getClass().getResourceAsStream("anyElement.xml"));
         JAXBElement<AnyObjectList> jaxbAnyObjectList = ctx.createUnmarshaller().unmarshal(source, AnyObjectList.class);
@@ -290,7 +290,7 @@ public class AnyTest extends XoTestCase {
     public void testAnyAttribute() throws Exception {
         System.setProperty("org.metatype.sxc.output.directory", "target/tmp-jaxb");
 
-        JAXBContext ctx = JAXBContextImpl.newInstance(AnyAttribute.class);
+        JAXBContext ctx = JAXBContextImpl.newSxcInstance(AnyAttribute.class);
 
         StreamSource source = new StreamSource(getClass().getResourceAsStream("anyAttribute.xml"));
         JAXBElement<AnyAttribute> jaxbAnyAttribute = ctx.createUnmarshaller().unmarshal(source, AnyAttribute.class);
