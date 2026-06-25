@@ -9,7 +9,7 @@
 
   <groupId>io.github.rzo1.org.metatype.sxc</groupId>
   <artifactId>sxc</artifactId>
-  <version>0.9</version>
+  <version>0.10-SNAPSHOT</version>
   <name>Simple XML Compiler</name>
 
   <packaging>pom</packaging>
