@@ -4,12 +4,12 @@
   <parent>
     <artifactId>sxc</artifactId>
     <groupId>io.github.rzo1.org.metatype.sxc</groupId>
-    <version>0.10-SNAPSHOT</version>
+    <version>0.10</version>
   </parent>
 
   <groupId>io.github.rzo1.org.metatype.sxc</groupId>
   <artifactId>sxc-jaxb-core</artifactId>
-  <version>0.10-SNAPSHOT</version>
+  <version>0.10</version>
   <name>SXC JAXB :: Core</name>
 
   <packaging>jar</packaging>
