@@ -1041,53 +1041,61 @@ public class ReaderIntrospector {
     }
 
     private JExpression coerce(JAXBObjectBuilder builder, JVar xsrVar, JExpression stringValue, Class<?> destType) {
+        // Per the XML Schema spec the numeric, boolean and temporal builtin types use a
+        // whitespace="collapse" facet, so leading/trailing whitespace must be stripped
+        // before the lexical value is parsed. The primitive accessors (getElementAsInt(),
+        // ...) already trim; the wrapper/temporal branches below pass the raw text through
+        // and would otherwise fail on values such as "\n  30  \n". Collapse here so every
+        // numeric coercion behaves consistently. String stays untouched (it may legitimately
+        // carry significant whitespace and the element/attribute readers normalize it already).
+        final JExpression trimmed = destType.equals(String.class) ? stringValue : stringValue.invoke("trim");
         if (destType.isPrimitive()) {
             if (destType.equals(boolean.class)) {
-                return JExpr.lit("1").invoke("equals").arg(stringValue).cor(JExpr.lit("true").invoke("equals").arg(stringValue));
+                return JExpr.lit("1").invoke("equals").arg(trimmed).cor(JExpr.lit("true").invoke("equals").arg(trimmed));
             } else if (destType.equals(byte.class)) {
-                return context.toJClass(Byte.class).staticInvoke("parseByte").arg(stringValue);
+                return context.toJClass(Byte.class).staticInvoke("parseByte").arg(trimmed);
             } else if (destType.equals(short.class)) {
-                return context.toJClass(Short.class).staticInvoke("parseShort").arg(stringValue);
+                return context.toJClass(Short.class).staticInvoke("parseShort").arg(trimmed);
             } else if (destType.equals(int.class)) {
-                return context.toJClass(Integer.class).staticInvoke("parseInt").arg(stringValue);
+                return context.toJClass(Integer.class).staticInvoke("parseInt").arg(trimmed);
             } else if (destType.equals(long.class)) {
-                return context.toJClass(Long.class).staticInvoke("parseLong").arg(stringValue);
+                return context.toJClass(Long.class).staticInvoke("parseLong").arg(trimmed);
             } else if (destType.equals(float.class)) {
-                return context.toJClass(Float.class).staticInvoke("parseFloat").arg(stringValue);
+                return context.toJClass(Float.class).staticInvoke("parseFloat").arg(trimmed);
             } else if (destType.equals(double.class)) {
-                return context.toJClass(Double.class).staticInvoke("parseDouble").arg(stringValue);
+                return context.toJClass(Double.class).staticInvoke("parseDouble").arg(trimmed);
             }
         } else {
             if (destType.equals(String.class)) {
                 return stringValue;
             } else if (destType.equals(Boolean.class)) {
-                return JExpr.lit("1").invoke("equals").arg(stringValue).cor(JExpr.lit("true").invoke("equals").arg(stringValue));
+                return JExpr.lit("1").invoke("equals").arg(trimmed).cor(JExpr.lit("true").invoke("equals").arg(trimmed));
             } else if (destType.equals(Byte.class)) {
-                return context.toJClass(Byte.class).staticInvoke("valueOf").arg(stringValue);
+                return context.toJClass(Byte.class).staticInvoke("valueOf").arg(trimmed);
             } else if (destType.equals(Short.class)) {
-                return context.toJClass(Short.class).staticInvoke("valueOf").arg(stringValue);
+                return context.toJClass(Short.class).staticInvoke("valueOf").arg(trimmed);
             } else if (destType.equals(Integer.class)) {
-                return context.toJClass(Integer.class).staticInvoke("valueOf").arg(stringValue);
+                return context.toJClass(Integer.class).staticInvoke("valueOf").arg(trimmed);
             } else if (destType.equals(Long.class)) {
-                return context.toJClass(Long.class).staticInvoke("valueOf").arg(stringValue);
+                return context.toJClass(Long.class).staticInvoke("valueOf").arg(trimmed);
             } else if (destType.equals(Float.class)) {
-                return context.toJClass(Float.class).staticInvoke("valueOf").arg(stringValue);
+                return context.toJClass(Float.class).staticInvoke("valueOf").arg(trimmed);
             } else if (destType.equals(Double.class)) {
-                return context.toJClass(Double.class).staticInvoke("valueOf").arg(stringValue);
+                return context.toJClass(Double.class).staticInvoke("valueOf").arg(trimmed);
             } else if (destType.equals(XMLGregorianCalendar.class)) {
-                return builder.getDatatypeFactory().invoke("newXMLGregorianCalendar").arg(stringValue);
+                return builder.getDatatypeFactory().invoke("newXMLGregorianCalendar").arg(trimmed);
             } else if (destType.equals(Duration.class)) {
-                return builder.getDatatypeFactory().invoke("newDuration").arg(stringValue);
+                return builder.getDatatypeFactory().invoke("newDuration").arg(trimmed);
             } else if (destType.equals(BigDecimal.class)) {
-                return JExpr._new(context.toJClass(BigDecimal.class)).arg(stringValue);
+                return JExpr._new(context.toJClass(BigDecimal.class)).arg(trimmed);
             } else if (destType.equals(BigInteger.class)) {
-                return JExpr._new(context.toJClass(BigInteger.class)).arg(stringValue);
+                return JExpr._new(context.toJClass(BigInteger.class)).arg(trimmed);
             } else if (destType.isEnum()) {
                 JAXBEnumBuilder enumBuilder = enumBuilders.get(destType);
                 if (enumBuilder == null) {
                     throw new BuildException("Unknown enum type " + destType);
                 }
-                return invokeEnumParser(builder, xsrVar, enumBuilder, stringValue);
+                return invokeEnumParser(builder, xsrVar, enumBuilder, trimmed);
             }
         }
         throw new UnsupportedOperationException("Invalid type " + destType);
